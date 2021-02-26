@@ -5,3 +5,6 @@ Ygor Souza de Oliveira
 Filipe Vital da Silva
 Yasmim Oliveira Candelaria
 Juan Gonçalves Dias
+
+Área de atuação:
+Loja de instrumentos músicais com foco em venda de produtos.
