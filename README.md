@@ -2,7 +2,7 @@
 
 Integrantes do Projeto Integrador:
 Ygor Souza de Oliveira
-Filipe Vital da Silva
+Fillipe Vital da Silva
 Yasmim Oliveira Candelaria
 Juan Gonçalves Dias
 
