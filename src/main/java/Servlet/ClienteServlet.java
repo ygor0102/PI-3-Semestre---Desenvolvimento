@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -60,6 +61,15 @@ public class ClienteServlet extends HttpServlet {
             }
             
             
+    }
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+            
+         List<Cliente> listaClientes = ClienteDAO.listaClientes();
+         request.setAttribute("listaClientes", listaClientes);
+         request.getRequestDispatcher("/Pesquisa.jsp").forward(request, response);
     }
 
     

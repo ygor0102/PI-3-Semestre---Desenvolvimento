@@ -8,6 +8,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Model.Cliente;
 import Utils.Conexao;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -41,6 +45,37 @@ public class ClienteDAO {
             ok = false;
         }
         return ok;
+    }
+     
+     public static List<Cliente> listaClientes() {
+        List<Cliente> clientes = new ArrayList<>();
+        String query = "select * from cliente";
+        Connection con;
+        try {
+            con = Conexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                String nome = rs.getString("nome");
+                Date nascimento = rs.getDate("nascimento");
+                String CPF = rs.getString("CPF");
+                String sexo = rs.getString("sexo");
+                String estado = rs.getString("estado");
+                String UF = rs.getString("UF");
+                String logradouro = rs.getString("logradouro");
+                int numero = rs.getInt("numero_residencia");
+                String complemento = rs.getString("complemento");
+                String telefone = rs.getString("telefone");
+                String celular = rs.getString("celular");
+                String email = rs.getString("email");
+                Cliente cliente = new Cliente(nome, nascimento, CPF, sexo, estado, UF, logradouro,
+                                               numero, complemento, telefone, celular, email);
+                clientes.add(cliente);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return clientes;   
     }
     
 }
