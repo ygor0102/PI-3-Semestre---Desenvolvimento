@@ -1,5 +1,5 @@
 
-package Servlet;
+package Servlet.Cliente;
 
 import DAO.ClienteDAO;
 import Model.Cliente;

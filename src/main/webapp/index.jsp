@@ -21,7 +21,7 @@
                     <li> <a href="ClienteServlet">Gerenciar clientes e produtos</a></li>
                     <li> <a href="Cadastro.jsp">Realizar cadastros</a></li>
                     <li> <a href="#">Extrair relatórios</a></li>
-                </ul>  
+                </ul>
             </nav>
         </header> 
     </body>

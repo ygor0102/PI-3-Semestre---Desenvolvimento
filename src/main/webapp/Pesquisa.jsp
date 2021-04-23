@@ -15,6 +15,37 @@
     </head>
     <body>
         <c:import url="Header.jsp"/>
+        
+        <script>
+            function confirmarExclusao(cpf) {
+                console.log("Sucesso!" , cpf);
+                $("#cpfCliente").html(cpf);
+                $(".modal").show();
+            }
+            
+            function fecharModal(){
+                $(".modal").hide();
+            }
+            
+            function deletarCliente() {
+                var cpfCliente = $("#cpfCliente").html();
+                $(".modal").hide();
+                //Chamada AJAX para o servlet
+                $.ajax({
+                    method: "GET",
+                    url: "ExcluirCliente?cpf="+cpfCliente
+                })
+                .done(function( msg ) {
+                   location.reload();
+                });
+                
+                
+            }
+            
+                
+            
+        </script>
+        
         <h5>Lista de Clientes</h5>
         
         <table>
@@ -48,6 +79,7 @@
                         <td>${cliente.telefone}</td>
                         <td>${cliente.celular}</td>
                         <td>${cliente.email}</td>
+                        <td><a href="AlterarCliente?CPF=${cliente.CPF}" >Alterar</a></td>
                     </tr>
                 </c:forEach>
             </tbody>

@@ -11,13 +11,13 @@ import java.util.logging.Logger;
  *
  * @author ygor.oliveira
  */
-public class Conexao {
+public class GerenciarConexao {
    
     static {
         try {
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GerenciarConexao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
    

@@ -14,7 +14,7 @@
     <body>
         <script>
           
-                alert("Cliente salvo com sucesso!");
+                alert("Operação realizada com sucesso!");
             
 </script>
 <br> 
