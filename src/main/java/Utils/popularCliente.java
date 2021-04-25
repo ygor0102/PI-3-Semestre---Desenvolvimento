@@ -7,7 +7,10 @@ package Utils;
 
 import Model.Cliente;
 import java.sql.ResultSet;
+import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
 /**

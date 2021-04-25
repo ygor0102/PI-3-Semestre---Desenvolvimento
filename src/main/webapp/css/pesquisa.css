@@ -11,6 +11,8 @@ and open the template in the editor.
 .table{
     border-spacing: 0.2em;
     border-collapse: separate;
+    margin-left: 50%;
+    margin-right: 50%;
 }
 
 thead{

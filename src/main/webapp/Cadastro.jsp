@@ -14,10 +14,10 @@
     </head>
     <body>
         <h1>Cadastros - LIS</h1>
-        <legend>Preencha os dados do cliente</legend>
+        <legend>..:: DADOS DO CLIENTE ::..</legend>
         
        
-        <c:if test="${empty not cliente}">
+        <c:if test="${not empty cliente}">
              <form action="AlterarCliente" method="POST">
         <ul>
             
@@ -33,7 +33,7 @@
                          </div></li>
         <br>              
                          <li><div class ="form-group">
-                             <label for="cpf">CPF: </label>
+                             <label for="CPF">CPF: </label>
                              <input type="text" class="form-control" id="CPF" name="CPF" value = "${cliente.CPF}" readonly="true">
                          </div></li>
         <br>              
@@ -98,62 +98,62 @@
         <br>
                         <li> <div class ="form-group">
                              <label for="nome">Nome completo: </label>
-                             <input type="text" class="form-control" id="nome" name="nome" value = "${cliente.nome}"autofocus required>
+                             <input type="text" class="form-control" id="nome" name="nome" autofocus required>
                             </div></li>
         <br>
                         <li> <div class ="form-group">
                              <label for="nascimento">Nascimento: </label>
-                             <input type="text" class="form-control" id="nascimento" name="nascimento" value = "${cliente.nascimento}"placeholder ="Dia/Mês/Ano">
+                             <input type="text" class="form-control" id="nascimento" name="nascimento" placeholder ="Dia/Mês/Ano">
                          </div></li>
         <br>              
                          <li><div class ="form-group">
                              <label for="cpf">CPF: </label>
-                             <input type="text" class="form-control" id="CPF" name="CPF" value = "${cliente.CPF}">
+                             <input type="text" class="form-control" id="CPF" name="CPF" >
                          </div></li>
         <br>              
                         <li> <div class ="form-group">
                              <label for="sexo">Sexo: </label>
-                             <input type="text" class="form-control" id="sexo" name="sexo" placeholder="M / F" value = "${cliente.sexo}">
+                             <input type="text" class="form-control" id="sexo" name="sexo" placeholder="M / F" >
                          </div></li>
         <br>              
                         <li> <div class ="form-group">
                              <label for="estado">Estado: </label>
-                             <input type="text" class="form-control" id="estado" name="estado" value = "${cliente.estado}">
-                         </div></li>
-        <br>              
+                             <input type="text" class="form-control" id="estado" name="estado">
+                             </div></li>
+         <br>              
                          <li><div class ="form-group">
                              <label for="UF">UF: </label>
-                             <input type="text" class="form-control" id="UF" name="UF" value = "${cliente.UF}">
+                             <input type="text" class="form-control" id="UF" name="UF">
                          </div></li>
-        <br>              
+        <br>                
                          <li><div class ="form-group">
                              <label for="logradouro">Logradouro: </label>
-                             <input type="text" class="form-control" id="logradouro" name="logradouro" value = "${cliente.logradouro}">
+                             <input type="text" class="form-control" id="logradouro" name="logradouro">
                          </div></li>
         <br>              
                          <li><div class ="form-group">
                              <label for="numero">Numero: </label>
-                             <input type="text" class="form-control" id="numero" name="numero" value = "${cliente.numero}">
+                             <input type="text" class="form-control" id="numero" name="numero">
                          </div></li>
         <br>              
                         <li> <div class ="form-group">
                              <label for="complemento">Complemento: </label>
-                             <input type="text" class="form-control" id="complemento" name="complemento" placeholder="Casa, Apto, Bloco..." value = "${cliente.complemento}">
+                             <input type="text" class="form-control" id="complemento" name="complemento" placeholder="Casa, Apto, Bloco...">
                          </div></li>
          <br>              
                         <li> <div class ="form-group">
                              <label for="telefone">Telefone: </label>
-                             <input type="text" class="form-control" id="telefone" name="telefone" placeholder="1188884444" value = "${cliente.telefone}">
+                             <input type="text" class="form-control" id="telefone" name="telefone" placeholder="1188884444">
                          </div></li>
          <br>              
                          <li><div class ="form-group">
                              <label for="celular">Celular: </label>
-                             <input type="text" class="form-control" id="celular" name="celular" placeholder="11988884444" value = "${cliente.celular}">
+                             <input type="text" class="form-control" id="celular" name="celular" placeholder="11988884444">
                          </div></li>
          <br>              
                          <li><div class ="form-group">
                              <label for="email">E-mail: </label>
-                             <input type="text" class="form-control" id="email" name="email" placeholder="Exemplo@mail.com" value = "${cliente.email}">
+                             <input type="text" class="form-control" id="email" name="email" placeholder="Exemplo@mail.com">
                          </div></li>
                          <br>
                          <button type="submit" class="btn btn-primary">Salvar!</button>
@@ -162,7 +162,50 @@
              </form>
              </c:if>
         
-        
+      <br>
+        <br>
+        <legend>..:: DADOS DO PRODUTO ::..</legend>
+        <c:if test="${empty produto}">
+             <form action="ProdutoServlet" method="POST">
+        <ul>
+            
+        <br>
+                        <li> <div class ="form-group">
+                             <label for="nome">Nome do produto: </label>
+                             <input type="text" class="form-control" id="nome" name="nome">
+                            </div></li>
+        <br>
+                        <li> <div class ="form-group">
+                             <label for="modelo">Modelo / Marca: </label>
+                             <input type="text" class="form-control" id="nascimento" name="modelo">
+                         </div></li>
+        <br>              
+                         <li><div class ="form-group">
+                             <label for="tipo">Tipo / Categoria: </label>
+                             <input type="text" class="form-control" id="CPF" name="tipo">
+                         </div></li>
+        <br>              
+                        <li> <div class ="form-group">
+                             <label for="preco">Preço unitário: </label>
+                             <input type="text" class="form-control" id="sexo" name="preco" placeholder="0.00" >
+                         </div></li>
+        <br>              
+                        <li> <div class ="form-group">
+                             <label for="qtdEstoque">Quantidade para estoque: </label>
+                             <input type="text" class="form-control" id="estado" name="qtdEstoque">
+                             </div></li>
+         <br>              
+                         <li><div class ="form-group">
+                             <label for="filial">Filial hierarquica: </label>
+                             <input type="text" class="form-control" id="UF" name="filial" placeholder="Digite o número da filial..." >
+                            </div></li>
+                         <br>
+                         <button type="submit" class="btn btn-primary">Salvar!</button>
+                    
+         </ul>
+             </form>
+             </c:if>
+       
         <br> 
         <li> <a href="index.jsp">Voltar</a></li>
     </body>

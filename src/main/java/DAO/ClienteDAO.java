@@ -99,25 +99,39 @@ public class ClienteDAO {
      
      public static boolean atualizarCliente(Cliente cliente) {
        boolean ok = true;
-       String query = "update cliente set nome=?, nascimento=?, sexo=?, estado=?, "
-               + "UF=?, logradouro=?, numero_residencia=?, complemento=?, "
-               + "telefone=?, celular=?, email=?, where CPF=?";
+       String query = "update cliente set nome=?, nascimento=?, sexo=?, estado=?, UF=?, logradouro=?, numero_residencia=?, complemento=?, telefone=?, celular=?, email=? where CPF=?";
        Connection conn;
         try {
             conn = GerenciarConexao.getConexao();
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, cliente.getNome());
             ps.setDate(2, new java.sql.Date(cliente.getNascimento().getTime()));
-            ps.setString(3, cliente.getCPF());
-            ps.setString(4, cliente.getSexo());
-            ps.setString(5, cliente.getEstado());
-            ps.setString(6, cliente.getUF());
-            ps.setString(7, cliente.getLogradouro());
-            ps.setInt(8, cliente.getNumero());
-            ps.setString(9, cliente.getComplemento());
-            ps.setString(10, cliente.getTelefone());
-            ps.setString(11, cliente.getCelular());
-            ps.setString(12, cliente.getEmail());
+            ps.setString(3, cliente.getSexo());
+            ps.setString(4, cliente.getEstado());
+            ps.setString(5, cliente.getUF());
+            ps.setString(6, cliente.getLogradouro());
+            ps.setInt(7, cliente.getNumero());
+            ps.setString(8, cliente.getComplemento());
+            ps.setString(9, cliente.getTelefone());
+            ps.setString(10, cliente.getCelular());
+            ps.setString(11, cliente.getEmail());
+            ps.setString(12, cliente.getCPF());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            ok = false;
+        }
+        return ok;
+   }
+     
+      public static boolean excluirCliente(String cpf) {
+       boolean ok = true;
+       String query = "delete from cliente where CPF=?";
+       Connection conn;
+        try {
+            conn = GerenciarConexao.getConexao();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, cpf);
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);

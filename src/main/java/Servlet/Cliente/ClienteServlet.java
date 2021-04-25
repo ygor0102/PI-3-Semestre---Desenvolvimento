@@ -69,7 +69,7 @@ public class ClienteServlet extends HttpServlet {
             
          List<Cliente> listaClientes = ClienteDAO.listaClientes();
          request.setAttribute("listaClientes", listaClientes);
-         request.getRequestDispatcher("/Pesquisa.jsp").forward(request, response);
+         request.getRequestDispatcher("ProdutoServlet").forward(request, response);
     }
 
     

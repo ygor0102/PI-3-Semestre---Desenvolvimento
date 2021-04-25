@@ -29,7 +29,7 @@ public class AlterarCliente extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String cpf = request.getParameter("CPF");
+        String cpf = request.getParameter("cpf");
         Cliente cliente = ClienteDAO.getCliente(cpf);
         
         request.setAttribute("cliente", cliente);

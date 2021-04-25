@@ -17,9 +17,9 @@
         <c:import url="Header.jsp"/>
         
         <script>
-            function confirmarExclusao(cpf) {
-                console.log("Sucesso!" , cpf);
-                $("#cpfCliente").html(cpf);
+            function confirmarExclusao(CPF) {
+                console.log("Sucesso!" , CPF);
+                $("#cpfCliente").html(CPF);
                 $(".modal").show();
             }
             
@@ -33,7 +33,7 @@
                 //Chamada AJAX para o servlet
                 $.ajax({
                     method: "GET",
-                    url: "ExcluirCliente?cpf="+cpfCliente
+                    url: "ExcluirCliente?CPF="+cpfCliente
                 })
                 .done(function( msg ) {
                    location.reload();
@@ -46,8 +46,8 @@
             
         </script>
         
-        <h5>Lista de Clientes</h5>
-        
+        <h5>..:: LISTA DE CLIENTES ::..</h5>
+        <br>
         <table>
             <thead>
                 <th>Nome</th>
@@ -79,11 +79,58 @@
                         <td>${cliente.telefone}</td>
                         <td>${cliente.celular}</td>
                         <td>${cliente.email}</td>
-                        <td><a href="AlterarCliente?CPF=${cliente.CPF}" >Alterar</a></td>
+                        <td><a href="AlterarCliente?cpf=${cliente.CPF}" >Alterar</a></td>
+                        <td><button type="button" class="btn btn-link" onclick="confirmarExclusao(${cliente.CPF})">Excluir</button></td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+        <div class="modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Confirmar Exclusão</h5>
+                  <button type="button" class="btn-close"
+                          data-bs-dismiss="modal" aria-label="Close" onclick="fecharModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Confirmar a exclusão do cliente <label id="cpfCliente"></label>?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="fecharModal()">Cancelar</button>
+                  <button type="button" class="btn btn-primary" onclick="deletarCliente()">Confirmar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <br>
+        <br>
+        <h5>..:: LISTA DE PRODUTOS ::..</h5>
+        <br>
+        <table>
+            <thead>
+                <th>Nome</th>
+                <th>Modelo</th>
+                <th>Tipo/Categoria</th>
+                <th>Preço unitário</th>
+                <th>Quantidade em estoque</th>
+                <th>Filial hierarquica</th>
+                
+            </thead>
+            <tbody> 
+                <c:forEach var="produto" items="${listaProdutos}">
+                    <tr>
+                        <td>${produto.nome}</td>
+                        <td>${produto.modelo}</td>
+                        <td>${produto.tipo}</td>
+                        <td>${produto.preco}</td>
+                        <td>${produto.qtdEstoque}</td>
+                        <td>${produto.FKFilial}</td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
         
+        <li> <a href="index.jsp">Voltar</a></li>
     </body>
 </html>
