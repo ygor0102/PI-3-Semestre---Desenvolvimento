@@ -17,15 +17,26 @@
         <c:import url="Header.jsp"/>
         
         <script>
+       
             function confirmarExclusao(CPF) {
                 console.log("Sucesso!" , CPF);
                 $("#cpfCliente").html(CPF);
                 $(".modal").show();
             }
+         
             
+            function confirmarExclusaoProduto(idProduto) {
+                console.log("Sucesso!" , idProduto);
+                $("#idProduto").html(idProduto);
+                $(".modal2").show();
+            }
+            
+              
             function fecharModal(){
                 $(".modal").hide();
+                $(".modal2").hide();
             }
+            
             
             function deletarCliente() {
                 var cpfCliente = $("#cpfCliente").html();
@@ -37,12 +48,21 @@
                 })
                 .done(function( msg ) {
                    location.reload();
-                });
-                
-                
+                });   
             }
             
-                
+            function deletarProduto() {
+                var idProduto = $("#idProduto").html();
+                $(".modal2").hide();
+                //Chamada AJAX para o servlet
+                $.ajax({
+                    method: "GET",
+                    url: "ExcluirProduto?idProduto="+idProduto
+                })
+                .done(function( msg ) {
+                   location.reload();
+                });
+            }
             
         </script>
         
@@ -109,6 +129,7 @@
         <br>
         <table>
             <thead>
+                <th>Código do produto</th>
                 <th>Nome</th>
                 <th>Modelo</th>
                 <th>Tipo/Categoria</th>
@@ -120,16 +141,39 @@
             <tbody> 
                 <c:forEach var="produto" items="${listaProdutos}">
                     <tr>
+                        <td>${produto.idProduto}</td>
                         <td>${produto.nome}</td>
                         <td>${produto.modelo}</td>
                         <td>${produto.tipo}</td>
                         <td>${produto.preco}</td>
                         <td>${produto.qtdEstoque}</td>
                         <td>${produto.FKFilial}</td>
+                        <td><a href="AlterarProduto?idproduto=${produto.idProduto}">Alterar</a></td>
+                        <td><button type="button" class="btn btn-link" onclick="confirmarExclusaoProduto(${produto.idProduto})">Excluir</button></td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
+        
+        <div class="modal2" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Confirmar Exclusão</h5>
+                  <button type="button" class="btn-close"
+                          data-bs-dismiss="modal2" aria-label="Close" onclick="fecharModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Confirmar a exclusão do produto <label id="idProduto"></label>?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal2" onclick="fecharModal()">Cancelar</button>
+                  <button type="button" class="btn btn-primary" onclick="deletarProduto()">Confirmar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
         
         <li> <a href="index.jsp">Voltar</a></li>
     </body>

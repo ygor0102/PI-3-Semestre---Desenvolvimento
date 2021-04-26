@@ -22,6 +22,16 @@ public class Produto {
         this.qtdEstoque = qtdEstoque;
         this.FKFilial = FKFilial;
     }
+    
+    public Produto(int idProduto, String nome, String modelo, String tipo, double preco, int qtdEstoque, int FKFilial) {
+        this.idProduto = idProduto;
+        this.nome = nome;
+        this.modelo = modelo;
+        this.tipo = tipo;
+        this.preco = preco;
+        this.qtdEstoque = qtdEstoque;
+        this.FKFilial = FKFilial;
+    }
 
     public int getIdProduto() {
         return idProduto;

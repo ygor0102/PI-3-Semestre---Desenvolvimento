@@ -205,6 +205,53 @@
          </ul>
              </form>
              </c:if>
+        
+        <c:if test="${not empty produto}">
+             <form action="AlterarProduto" method="POST">
+        <ul>
+            
+        <br>
+                        <li> <div class ="form-group">
+                             <label for="idProduto">Código do produto: </label>
+                             <input type="text" class="form-control" id="nome" name="idProduto" value = "${produto.idProduto}" readonly="true">
+                            </div></li>
+        <br>
+            
+        <br>
+                        <li> <div class ="form-group">
+                             <label for="nome">Nome do produto: </label>
+                             <input type="text" class="form-control" id="nome" name="nome" value = "${produto.nome}">
+                            </div></li>
+        <br>
+                        <li> <div class ="form-group">
+                             <label for="modelo">Modelo / Marca: </label>
+                             <input type="text" class="form-control" id="nascimento" name="modelo" value = "${produto.modelo}">
+                         </div></li>
+        <br>              
+                         <li><div class ="form-group">
+                             <label for="tipo">Tipo / Categoria: </label>
+                             <input type="text" class="form-control" id="CPF" name="tipo" value = "${produto.tipo}">
+                         </div></li>
+        <br>              
+                        <li> <div class ="form-group">
+                             <label for="preco">Preço unitário: </label>
+                             <input type="text" class="form-control" id="sexo" name="preco" placeholder="0.00" value = "${produto.preco}">
+                         </div></li>
+        <br>              
+                        <li> <div class ="form-group">
+                             <label for="qtdEstoque">Quantidade para estoque: </label>
+                             <input type="text" class="form-control" id="estado" name="qtdEstoque" value = "${produto.qtdEstoque}">
+                             </div></li>
+         <br>              
+                         <li><div class ="form-group">
+                             <label for="filial">Filial hierarquica: </label>
+                             <input type="text" class="form-control" id="UF" name="filial" value = "${produto.FKFilial}">
+                            </div></li>
+                         <br>
+                         <button type="submit" class="btn btn-primary">Alterar produto!</button>    
+         </ul>
+             </form>
+             </c:if>
        
         <br> 
         <li> <a href="index.jsp">Voltar</a></li>

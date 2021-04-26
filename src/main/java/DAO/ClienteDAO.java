@@ -1,7 +1,7 @@
 
 package DAO;
 
-import Utils.popularCliente;
+import Utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Model.Cliente;
 import Utils.GerenciarConexao;
-import static Utils.popularCliente.popularCliente;
+import static Utils.Utils.popularCliente;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;

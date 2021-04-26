@@ -6,6 +6,7 @@
 package Utils;
 
 import Model.Cliente;
+import Model.Produto;
 import java.sql.ResultSet;
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -17,7 +18,7 @@ import java.util.Date;
  *
  * @author ygor.oliveira
  */
-public class popularCliente {
+public class Utils {
     
     
       public static Cliente popularCliente(ResultSet rs) throws SQLException {
@@ -37,5 +38,19 @@ public class popularCliente {
         Cliente cliente = new Cliente(nome, nascimento, CPF, sexo, estado, UF, logradouro,
                                                numero, complemento, telefone, celular, email);
         return cliente;
+    }
+      
+        public static Produto popularProduto(ResultSet rs) throws SQLException {
+                int idProduto = rs.getInt("id_produto");
+                String nome = rs.getString("nome");
+                String modelo = rs.getString("modelo");
+                String tipo = rs.getString("tipo");
+                double preco = rs.getDouble("preco");
+                int qtdEstoque = rs.getInt("qtd_estoque");
+                int FKFilial = rs.getInt("fk_id_filial");
+               
+                Produto produto = new Produto(idProduto, nome, modelo, tipo, preco, qtdEstoque, FKFilial);
+                
+        return produto;
     }
 }
