@@ -17,7 +17,7 @@
             <h1><img src="img/headPhone.png" alt ="Logo da LIS"></h1>
             <nav class ="menu-opcoes">
                 <ul>
-                    <li> <a href="#">Realizar vendas</a></li>
+                    <li> <a href="VendaServlet">Realizar vendas</a></li>
                     <li> <a href="ClienteServlet">Gerenciar clientes e produtos</a></li>
                     <li> <a href="Cadastro.jsp">Realizar cadastros</a></li>
                     <li> <a href="#">Extrair relatórios</a></li>

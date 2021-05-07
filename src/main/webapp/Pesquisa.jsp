@@ -28,13 +28,16 @@
             function confirmarExclusaoProduto(idProduto) {
                 console.log("Sucesso!" , idProduto);
                 $("#idProduto").html(idProduto);
-                $(".modal2").show();
+                $("#modal2").show();
             }
             
               
             function fecharModal(){
                 $(".modal").hide();
-                $(".modal2").hide();
+            }
+            
+            function fecharModal2(){
+                $("#modal2").hide();
             }
             
             
@@ -53,7 +56,7 @@
             
             function deletarProduto() {
                 var idProduto = $("#idProduto").html();
-                $(".modal2").hide();
+                $("#modal2").hide();
                 //Chamada AJAX para o servlet
                 $.ajax({
                     method: "GET",
@@ -65,6 +68,7 @@
             }
             
         </script>
+        
         
         <h5>..:: LISTA DE CLIENTES ::..</h5>
         <br>
@@ -155,13 +159,13 @@
             </tbody>
         </table>
         
-        <div class="modal2" tabindex="-1">
+        <div class="modal" tabindex="-1" id="modal2">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Confirmar Exclusão</h5>
                   <button type="button" class="btn-close"
-                          data-bs-dismiss="modal2" aria-label="Close" onclick="fecharModal()"></button>
+                          data-bs-dismiss="modal2" aria-label="Close" onclick="fecharModal2()"></button>
                 </div>
                 <div class="modal-body">
                     <p>Confirmar a exclusão do produto <label id="idProduto"></label>?</p>
