@@ -103,7 +103,7 @@
                         <td>${cliente.telefone}</td>
                         <td>${cliente.celular}</td>
                         <td>${cliente.email}</td>
-                        <td><a href="AlterarCliente?cpf=${cliente.CPF}" >Alterar</a></td>
+                        <td><a href="AlterarCliente?cpf=${cliente.CPF}">Alterar</a></td>
                         <td><button type="button" class="btn btn-link" onclick="confirmarExclusao(${cliente.CPF})">Excluir</button></td>
                     </tr>
                 </c:forEach>

@@ -28,6 +28,10 @@
         <servlet-name>VendaServlet</servlet-name>
         <servlet-class>Servlet.Venda.VendaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CarrinhoServlet</servlet-name>
+        <servlet-class>Servlet.Venda.CarrinhoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/ClienteServlet</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>VendaServlet</servlet-name>
         <url-pattern>/VendaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CarrinhoServlet</servlet-name>
+        <url-pattern>/CarrinhoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

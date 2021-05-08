@@ -3,7 +3,7 @@
     Created on : 15/04/2021, 21:10:18
     Author     : ygor.oliveira
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,10 +22,10 @@
         <ul>
             
         <br>
-                        <li> <div class ="form-group">
+                        <li> 
                              <label for="nome">Nome completo: </label>
-                             <input type="text" class="form-control" id="nome" name="nome" value = "${cliente.nome}"autofocus required>
-                            </div></li>
+                             <input type="text" name="nome" value="${cliente.nome}" class="form-control"/>
+                            </li>
         <br>
                         <li> <div class ="form-group">
                              <label for="nascimento">Nascimento: </label>

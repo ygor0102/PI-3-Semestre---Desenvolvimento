@@ -44,6 +44,28 @@ public class ProdutoDAO {
         return ok;
     }
      
+     public static boolean addCarrinho(Produto produto) {
+        boolean ok = true;
+        try {
+            Connection con = GerenciarConexao.getConexao();
+            String query = "insert into carrinho(id_produto, nome, modelo, tipo, preco, qtd_produto, filial) values (?,?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, produto.getIdProduto());
+            ps.setString(2, produto.getNome());
+            ps.setString(3, produto.getModelo());
+            ps.setString(4, produto.getTipo());
+            ps.setDouble(5, produto.getPreco());
+            ps.setInt(6, produto.getQtdEstoque());
+            ps.setInt(7, produto.getFKFilial());
+  
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            ok = false;
+        }
+        return ok;
+    }
+     
       public static List<Produto> listaProdutos() {
         List<Produto> produtos = new ArrayList<>();
         String query = "select * from produto";
@@ -70,6 +92,32 @@ public class ProdutoDAO {
         return produtos;   
     }
       
+       public static List<Produto> listaCarrinho() {
+        List<Produto> produtos = new ArrayList<>();
+        String query = "select * from carrinho";
+        Connection con;
+        try {
+            con = GerenciarConexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                int idProduto = rs.getInt("id_produto");
+                String nome = rs.getString("nome");
+                String modelo = rs.getString("modelo");
+                String tipo = rs.getString("tipo");
+                double preco = rs.getDouble("preco");
+                int qtdProduto = rs.getInt("qtd_produto");
+                int FKFilial = rs.getInt("filial");
+               
+                Produto produto = new Produto(idProduto, nome, modelo, tipo, preco, qtdProduto, FKFilial);
+                produtos.add(produto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return produtos;   
+    }
+       
        public static boolean atualizarProduto(Produto produto) {
        boolean ok = true;
        String query = "update produto set nome=?, modelo=?, tipo=?, preco=?, qtd_estoque=?, fk_id_filial=? where id_produto=?";
