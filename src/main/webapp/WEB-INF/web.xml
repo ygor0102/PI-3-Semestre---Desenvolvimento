@@ -32,6 +32,14 @@
         <servlet-name>CarrinhoServlet</servlet-name>
         <servlet-class>Servlet.Venda.CarrinhoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExcluirCarrinho</servlet-name>
+        <servlet-class>Servlet.Venda.ExcluirCarrinho</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RelatorioServlet</servlet-name>
+        <servlet-class>Servlet.Venda.RelatorioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/ClienteServlet</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>CarrinhoServlet</servlet-name>
         <url-pattern>/CarrinhoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirCarrinho</servlet-name>
+        <url-pattern>/ExcluirCarrinho</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioServlet</servlet-name>
+        <url-pattern>/RelatorioServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

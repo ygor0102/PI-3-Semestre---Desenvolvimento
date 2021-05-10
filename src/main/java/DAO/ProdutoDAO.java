@@ -48,7 +48,7 @@ public class ProdutoDAO {
         boolean ok = true;
         try {
             Connection con = GerenciarConexao.getConexao();
-            String query = "insert into carrinho(id_produto, nome, modelo, tipo, preco, qtd_produto, filial) values (?,?,?,?,?,?)";
+            String query = "insert into carrinho(id_produto, nome, modelo, tipo, preco, qtd_produto, filial) values (?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, produto.getIdProduto());
             ps.setString(2, produto.getNome());
@@ -106,10 +106,10 @@ public class ProdutoDAO {
                 String modelo = rs.getString("modelo");
                 String tipo = rs.getString("tipo");
                 double preco = rs.getDouble("preco");
-                int qtdProduto = rs.getInt("qtd_produto");
+                int qtdEstoque = rs.getInt("qtd_produto");
                 int FKFilial = rs.getInt("filial");
                
-                Produto produto = new Produto(idProduto, nome, modelo, tipo, preco, qtdProduto, FKFilial);
+                Produto produto = new Produto(idProduto, nome, modelo, tipo, preco, qtdEstoque, FKFilial);
                 produtos.add(produto);
             }
         } catch (SQLException ex) {
@@ -117,6 +117,27 @@ public class ProdutoDAO {
         }
         return produtos;   
     }
+       
+        public static Double GetPrecoTotal() {
+        double preco =0;
+        String query = "select sum(preco*qtd_produto) as precoTotal from carrinho";
+        Connection con;
+        try {
+            con = GerenciarConexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+             while(rs.next()) {
+               preco = rs.getDouble(1);  
+             }
+             
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return preco;   
+    }
+        
+        
        
        public static boolean atualizarProduto(Produto produto) {
        boolean ok = true;
@@ -162,6 +183,22 @@ public class ProdutoDAO {
        public static boolean excluirProduto(int idProduto) {
        boolean ok = true;
        String query = "delete from produto where id_produto=?";
+       Connection conn;
+        try {
+            conn = GerenciarConexao.getConexao();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, idProduto);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            ok = false;
+        }
+        return ok;
+   }
+       
+       public static boolean excluirCarrinho(int idProduto) {
+       boolean ok = true;
+       String query = "delete from carrinho where id_produto=?";
        Connection conn;
         try {
             conn = GerenciarConexao.getConexao();

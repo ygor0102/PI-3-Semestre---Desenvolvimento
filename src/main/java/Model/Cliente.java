@@ -37,6 +37,22 @@ public class Cliente {
         this.email = email;
     }
     
+     public Cliente(int idCliente, String nome, Date nascimento, String CPF, String sexo, String estado, String UF, String logradouro, int numero, String complemento, String telefone, String celular, String email) {
+        this.idCliente = idCliente;
+        this.nome = nome;
+        this.nascimento = nascimento;
+        this.CPF = CPF;
+        this.sexo = sexo;
+        this.estado = estado;
+        this.UF = UF;
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.telefone = telefone;
+        this.celular = celular;
+        this.email = email;
+    }
+    
 
 
     /**

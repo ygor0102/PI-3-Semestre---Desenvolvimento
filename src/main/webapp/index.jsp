@@ -20,7 +20,7 @@
                     <li> <a href="VendaServlet">Realizar vendas</a></li>
                     <li> <a href="ClienteServlet">Gerenciar clientes e produtos</a></li>
                     <li> <a href="Cadastro.jsp">Realizar cadastros</a></li>
-                    <li> <a href="#">Extrair relatórios</a></li>
+                    <li> <a href="RelatorioServlet">Extrair relatórios</a></li>
                 </ul>
             </nav>
         </header> 

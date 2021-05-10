@@ -9,90 +9,65 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        
+        <title>Realizar venda</title>
+ 
     </head>
     
-    <script>
-       
-            function ValidaQtd(qtdEstoque) {
-               var qtdProduto = document.getElementById('qtdProduto').value;
-                if (qtdProduto > qtdEstoque) {
-                    alert("O produto não possui essa quantidade disponível!");
-                }
-                
-                else if (qtdProduto <=0) {
-                    alert("A quantidade precisa ser maior que 0!");
-                }
-                else{
-                    
-                    $.ajax({
-                    method: "POST",
-                    url: "CarrinhoServlet"
-                })
-                
-                .done(function( msg ) {
-                   location.reload();
-                });
-                
-                    
-                    alert("Produto adicionado com sucesso!");
-                }
-            }
-            
-            
-   
-            
-        </script>
     
     <body>
               <c:import url="Header.jsp"/>
-              <BR>
-              <h5>..:: Lista de produtos disponíveis ::..</h5>
-               <label for="qtd">Quantidade desejada: </label><input type="number" min="1" class="form-control" id="qtdProduto" name="qtdProduto" placeholder="Digite a quantidade...">
               <br>
-              <table>
+               <a href="index.jsp">Voltar</a>
+               <a href="CarrinhoServlet">Carrinho de compras</a>
+              <br>
+               
+        <script>
+       
+            function ValidaQtd(qtdEstoque){
+                var qtdProduto = document.getElementById('qtd_produto').value;
+                
+                if(qtdProduto > qtdEstoque) {
+                    alert("O produto não possui essa quantidade disponível!");
+                    document.getElementById("btAdd").disabled = true;
+                }
+                
+                else if(qtdProduto <=0) {
+                    alert("A quantidade precisa ser maior que 0!");
+                    document.getElementById("btAdd").disabled = true;
+                }
+                else{
+                    alert("Quantidade válida!");
+                    document.getElementById("btAdd").disabled = false;
+                }
+            }
+            
+        </script>
+        
+              <br>
+              <form action="CarrinhoServlet" method="POST">
+                    <p>Quantidade desejada: </p><input type="number" min="1" class="form-control" id="qtd_produto" name="qtd_produto" placeholder="Digite a quantidade..."/>
+                    <br>
+                    <p>Código do produto: </p><input type="number" min="1" class="form-control" id="id_produto" name="id_produto" placeholder="Digite o código..."/>          
+                    <br>
+                    <button type="submit" class="btn btn-primary" id="btAdd" name="btAdd" disabled="true">Adicionar ao carrinho</button>
+            </form>
+              <br>
+              <br>
+         <center><table>
                  <thead>
                   <th>Código do produto</th>
                   <th>Nome</th>
                   <th>Modelo</th>
                   <th>Tipo</th>
                   <th>Valor unitário</th>
-                  <th>Qtd. Disponível para venda</th>
+                  <th>Qtd. em estoque</th>
                   <th>Filial</th>
-                  <th>Adicionar</th>
+                  <th>Valida quantia</th>
               </thead>
              <tbody> 
+                <h5>Lista de produtos:</h5>
                 <c:forEach var="produto" items="${listaProdutos}">
-                    <tr>
-                        <td name="id_produto">${produto.idProduto}</td>
-                        <td name="nome">${produto.nome}</td>
-                        <td name="modelo">${produto.modelo}</td>
-                        <td name="tipo">${produto.tipo}</td>
-                        <td name="preco">${produto.preco}</td>
-                        <td>${produto.qtdEstoque}</td>
-                        <td name="filial">${produto.FKFilial}</td>
-                        <td><button type="button" class="btn btn-primary" onclick="ValidaQtd(${produto.qtdEstoque})">Adicionar ao carrinho</button></td>
-
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-              
-              <h5>..:: Carrinho de compras ::..</h5>
-              <br>
-              <table>
-                 <thead>
-                  <th>Código do produto</th>
-                  <th>Nome</th>
-                  <th>Modelo</th>
-                  <th>Tipo</th>
-                  <th>Valor unitário</th>
-                  <th>Quantidade a ser comprada</th>
-                  <th>Filial</th>
-                  <th>Remover</th>
-              </thead>
-              
-              <c:forEach var="carrinho" items="${listaCarrinho}">
                     <tr>
                         <td>${produto.idProduto}</td>
                         <td>${produto.nome}</td>
@@ -101,19 +76,10 @@
                         <td>${produto.preco}</td>
                         <td>${produto.qtdEstoque}</td>
                         <td>${produto.FKFilial}</td>
-                        <td><button type="button" class="btn btn-primary">Remover do carrinho</button></td>
-
+                        <td><button type="button" class="btn btn-link" onclick="ValidaQtd(${produto.qtdEstoque})">Validar qtd.</button></td>
                     </tr>
                 </c:forEach>
-               
-                 </tbody>
-        </table>
-       <li> <a href="index.jsp">Voltar</a></li>
- 
-              
+            </tbody>
+            </table></center>  
     </body>
-    
-  
-    
-    
 </html>

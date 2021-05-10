@@ -44,14 +44,13 @@
             function deletarCliente() {
                 var cpfCliente = $("#cpfCliente").html();
                 $(".modal").hide();
-                //Chamada AJAX para o servlet
-                $.ajax({
+               $.ajax({
                     method: "GET",
                     url: "ExcluirCliente?CPF="+cpfCliente
                 })
                 .done(function( msg ) {
                    location.reload();
-                });   
+                });
             }
             
             function deletarProduto() {
@@ -72,7 +71,7 @@
         
         <h5>..:: LISTA DE CLIENTES ::..</h5>
         <br>
-        <table>
+       <center> <table>
             <thead>
                 <th>Nome</th>
                 <th>Nascimento</th>

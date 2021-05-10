@@ -7,12 +7,9 @@ and open the template in the editor.
     Created on : 16/04/2021, 16:41:30
     Author     : ygor.oliveira
 */
-
 .table{
-    border-spacing: 0.2em;
-    border-collapse: separate;
-    margin-left: 50%;
-    margin-right: 50%;
+  margin-left: 50%;
+  margin-right: 50%;
 }
 
 thead{

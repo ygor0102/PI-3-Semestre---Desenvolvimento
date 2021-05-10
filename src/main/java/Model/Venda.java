@@ -13,11 +13,31 @@ public class Venda {
      private Date dataVenda;
      private double precoTotal;
      private int fkIdCliente;
+     private String nomeCliente;
+
+    public Venda(Date dataVenda, double precoTotal, int fkIdCliente) {
+        this.dataVenda = dataVenda;
+        this.precoTotal = precoTotal;
+        this.fkIdCliente = fkIdCliente;
+    }
+    
+    public Venda(Date dataVenda, double precoTotal, int fkIdCliente, String nomeCliente) {
+        this.dataVenda = dataVenda;
+        this.precoTotal = precoTotal;
+        this.fkIdCliente = fkIdCliente;
+        this.nomeCliente = nomeCliente;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
  
 
- public Venda(){
-     
-    }
+
     /**
      * Método acessor da chave estrangeira do cliente.
      * @return int fkIdCliente

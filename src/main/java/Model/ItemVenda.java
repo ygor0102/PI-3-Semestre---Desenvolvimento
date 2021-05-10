@@ -9,10 +9,27 @@ public class ItemVenda {
     private int idItem;
     private int FkIdVenda;
     private int FkIdProduto;
-    
-     public ItemVenda(){
-     
+    private int QtdVendida;
+
+    public ItemVenda(int FkIdVenda, int FkIdProduto, int QtdVendida) {
+        this.FkIdVenda = FkIdVenda;
+        this.FkIdProduto = FkIdProduto;
+        this.QtdVendida = QtdVendida;
     }
+
+    public int getQtdVendida() {
+        return QtdVendida;
+    }
+
+    public void setQtdVendida(int QtdVendida) {
+        this.QtdVendida = QtdVendida;
+    }
+
+   
+    
+    
+    
+    
     /**
      * Método acessor da chave estrangeira do produto.
      * @return int FkIdProduto

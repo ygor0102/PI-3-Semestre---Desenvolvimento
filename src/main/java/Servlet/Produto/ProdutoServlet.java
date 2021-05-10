@@ -46,6 +46,8 @@ public class ProdutoServlet extends HttpServlet {
             
          List<Produto> listaProdutos = ProdutoDAO.listaProdutos();
          request.setAttribute("listaProdutos", listaProdutos);
+       
+         
          request.getRequestDispatcher("/Pesquisa.jsp").forward(request, response);
     }
     
