@@ -40,6 +40,10 @@
         <servlet-name>RelatorioServlet</servlet-name>
         <servlet-class>Servlet.Venda.RelatorioServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RelatorioAnaliticoServlet</servlet-name>
+        <servlet-class>Servlet.Venda.RelatorioAnaliticoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/ClienteServlet</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>RelatorioServlet</servlet-name>
         <url-pattern>/RelatorioServlet</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>RelatorioAnaliticoServlet</servlet-name>
+        <url-pattern>/RelatorioAnaliticoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

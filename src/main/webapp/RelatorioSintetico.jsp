@@ -18,7 +18,7 @@
          <nav class ="menu-opcoes">
                 <ul>
                     <li> <a href="index.jsp">Menu</a></li>
-                    <li> <a href="#">Reporte Analítico</a></li>
+                    <li> <a href="RelatorioAnaliticoServlet">Reporte Analítico</a></li>
                     <li> <a href="#">Vendas por filiais</a></li>
                     <li> <a href="#">Vendas por categorias</a></li>
                 </ul>

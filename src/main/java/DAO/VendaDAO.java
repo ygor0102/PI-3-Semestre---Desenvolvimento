@@ -6,7 +6,6 @@
 package DAO;
 
 import Model.ItemVenda;
-import Model.Produto;
 import Model.Venda;
 import Utils.GerenciarConexao;
 import java.sql.Connection;
@@ -99,6 +98,32 @@ public class VendaDAO {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return vendas;
+    }
+    
+    public static List<ItemVenda> reporteAnalitico() {
+        List<ItemVenda> itens = new ArrayList<>();
+        String query = "select Fk_id_venda, FK_id_produto, qtd_vendida, produto.nome, produto.preco, (preco*qtd_vendida) from item_venda\n" +
+"        inner join produto on item_venda.FK_id_produto = produto.id_produto";
+        Connection con;
+        try {
+            con = GerenciarConexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                int FkIdVenda = rs.getInt("Fk_id_venda");
+                int FkIdProduto = rs.getInt("FK_id_produto");      
+                int QtdVendida = rs.getInt("qtd_vendida");
+                String nomeProduto = rs.getString("nome");
+                double precoProduto = rs.getDouble("preco");
+                double valorFaturado = rs.getDouble(6);
+               
+                ItemVenda venda = new ItemVenda(FkIdVenda, FkIdProduto, QtdVendida, nomeProduto, precoProduto, valorFaturado);
+                itens.add(venda);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return itens;
     }
     
 }
