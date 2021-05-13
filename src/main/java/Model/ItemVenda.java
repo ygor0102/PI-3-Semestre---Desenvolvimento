@@ -7,8 +7,10 @@ public class ItemVenda {
     private int FkIdProduto;
     private int QtdVendida;
     private String nomeProduto;
+    private String tipoProduto;
     private double precoProduto;
     private double valorFaturado;
+    private int FkIdFilial;
 
     public ItemVenda(int FkIdVenda, int FkIdProduto, int QtdVendida) {
         this.FkIdVenda = FkIdVenda;
@@ -16,14 +18,41 @@ public class ItemVenda {
         this.QtdVendida = QtdVendida;
     }
     
-     public ItemVenda(int FkIdVenda, int FkIdProduto, int QtdVendida, String nomeProduto, double precoProduto, double valorFaturado) {
+     public ItemVenda(int FkIdVenda, int FkIdProduto, int QtdVendida, String nomeProduto, String tipoProduto, double precoProduto, double valorFaturado, int FkIdFilial) {
         this.FkIdVenda = FkIdVenda;
         this.FkIdProduto = FkIdProduto;
         this.QtdVendida = QtdVendida;
         this.nomeProduto = nomeProduto;
+        this.tipoProduto = tipoProduto;
         this.precoProduto = precoProduto;
         this.valorFaturado = valorFaturado;
+        this.FkIdFilial = FkIdFilial;
     }
+
+    public ItemVenda() {
+    }
+
+    public String getTipoProduto() {
+        return tipoProduto;
+    }
+
+    public void setTipoProduto(String tipoProduto) {
+        this.tipoProduto = tipoProduto;
+    }
+    
+    
+     
+     
+
+    public int getFkIdFilial() {
+        return FkIdFilial;
+    }
+
+    public void setFkIdFilial(int FkIdFilial) {
+        this.FkIdFilial = FkIdFilial;
+    }
+     
+     
 
     public int getIdItem() {
         return idItem;

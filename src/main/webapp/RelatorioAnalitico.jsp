@@ -13,27 +13,30 @@
     </head>
     <body>
         <c:import url="Header.jsp"/>
-        <br>
-        
          <nav class ="menu-opcoes">
                 <ul>
                     <li> <a href="index.jsp">Menu</a></li>
                     <li> <a href="RelatorioServlet">Reporte Sintético</a></li>
-                    <li> <a href="#">Vendas por filiais</a></li>
-                    <li> <a href="#">Vendas por categorias</a></li>
+                    <li> <a href="RelatorioFiliais">Vendas por filiais</a></li>
+                    <li> <a href="RelatorioCategorias">Vendas por categorias</a></li>
                 </ul>
             </nav>
              <br>
-        <h4>Reporte Analítico de vendas<h4>
-   
+             
+        <br>
+        <img src="img/report.png" alt ="report">
+        <legend>Reporte Analítico de vendas<legend>
+        <br>
        <center> <table>
             <thead>
                 <th>ID da Venda</th>
                 <th>ID do Produto</th>
                 <th>Quantidade vendida</th>
                 <th>Nome produto</th>
+                <th>Categoria do produto</th>
                 <th>Preço unitário do produto</th>
                 <th>Valor faturado do produto</th>
+                <th>Filial hierarquica</th>
                 
             </thead>
             <tbody> 
@@ -43,9 +46,11 @@
                         <td>${item.fkIdProduto}</td>
                         <td>${item.qtdVendida}</td>
                         <td>${item.nomeProduto}</td>
+                        <td>${item.tipoProduto}</td>
                         <td>${item.precoProduto}</td>
                         <td>${item.valorFaturado}</td>
-           
+                        <td>${item.fkIdFilial}</td>
+                        
                     </tr>
                 </c:forEach>
             </tbody>

@@ -9,12 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/pesquisa.css">
         
         <title>Gerenciador</title>
     </head>
     <body>
         <c:import url="Header.jsp"/>
+        <c:import url="Menu.jsp"/>
         
         <script>
        
@@ -68,8 +68,9 @@
             
         </script>
         
-        
-        <h5>..:: LISTA DE CLIENTES ::..</h5>
+        <br>
+        <img src="img/user.png" alt ="cliente">
+        <legend>Clientes cadastrados na loja</legend>
         <br>
        <center> <table>
             <thead>
@@ -85,6 +86,9 @@
                 <th>Telefone</th>
                 <th>Celular</th>
                 <th>E-mail</th>
+                <th>Alterar</th>
+                <th>Excluir</th>
+
                 
             </thead>
             <tbody> 
@@ -128,17 +132,21 @@
           </div>
         <br>
         <br>
-        <h5>..:: LISTA DE PRODUTOS ::..</h5>
+        <br>
+        <img src="img/product.png" alt ="product">
+        <legend>Produtos cadastrados na loja</legend>
         <br>
         <table>
             <thead>
-                <th>Código do produto</th>
+                <th>ID do produto</th>
                 <th>Nome</th>
                 <th>Modelo</th>
                 <th>Tipo/Categoria</th>
                 <th>Preço unitário</th>
                 <th>Quantidade em estoque</th>
                 <th>Filial hierarquica</th>
+                <th>Alterar</th>
+                <th>Excluir</th>
                 
             </thead>
             <tbody> 
@@ -176,8 +184,6 @@
               </div>
             </div>
           </div>
-        
-        
-        <li> <a href="index.jsp">Voltar</a></li>
+ 
     </body>
 </html>

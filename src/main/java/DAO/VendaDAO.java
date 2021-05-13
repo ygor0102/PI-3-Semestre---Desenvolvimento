@@ -78,7 +78,7 @@ public class VendaDAO {
     
     public static List<Venda> reporteSintetico() {
         List<Venda> vendas = new ArrayList<>();
-        String query = "select data_venda, preco_total, FK_id_cliente, cliente.nome from venda\n" +
+        String query = "select id_venda, data_venda, preco_total, FK_id_cliente, cliente.nome from venda\n" +
 "        inner join cliente on venda.FK_id_cliente = cliente.id_cliente";
         Connection con;
         try {
@@ -86,12 +86,13 @@ public class VendaDAO {
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while(rs.next()) {
+                int idVenda = rs.getInt("id_venda");
                 Date dataVenda = rs.getDate("data_venda");
                 double precoTotal = rs.getDouble("preco_total");
                 int fkIdCliente = rs.getInt("FK_id_cliente");
                 String nomeCliente = rs.getString("nome");
                
-                Venda venda = new Venda(dataVenda, precoTotal, fkIdCliente, nomeCliente);
+                Venda venda = new Venda(idVenda, dataVenda, precoTotal, fkIdCliente, nomeCliente);
                 vendas.add(venda);
             }
         } catch (SQLException ex) {
@@ -102,7 +103,7 @@ public class VendaDAO {
     
     public static List<ItemVenda> reporteAnalitico() {
         List<ItemVenda> itens = new ArrayList<>();
-        String query = "select Fk_id_venda, FK_id_produto, qtd_vendida, produto.nome, produto.preco, (preco*qtd_vendida) from item_venda\n" +
+        String query = "select Fk_id_venda, FK_id_produto, qtd_vendida, produto.nome, produto.tipo, produto.preco, (preco*qtd_vendida), produto.FK_ID_FILIAL from item_venda\n" +
 "        inner join produto on item_venda.FK_id_produto = produto.id_produto";
         Connection con;
         try {
@@ -114,10 +115,63 @@ public class VendaDAO {
                 int FkIdProduto = rs.getInt("FK_id_produto");      
                 int QtdVendida = rs.getInt("qtd_vendida");
                 String nomeProduto = rs.getString("nome");
+                String tipoProduto = rs.getString("tipo");
                 double precoProduto = rs.getDouble("preco");
-                double valorFaturado = rs.getDouble(6);
+                double valorFaturado = rs.getDouble(7);
+                int FkIdFilial = rs.getInt("FK_id_filial");
                
-                ItemVenda venda = new ItemVenda(FkIdVenda, FkIdProduto, QtdVendida, nomeProduto, precoProduto, valorFaturado);
+                ItemVenda venda = new ItemVenda(FkIdVenda, FkIdProduto, QtdVendida, nomeProduto, tipoProduto, precoProduto, valorFaturado, FkIdFilial);
+                itens.add(venda);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return itens;
+    }
+    
+    public static List<ItemVenda> reporteFiliais() {
+        List<ItemVenda> itens = new ArrayList<>();
+        String query = "select filial.nome, sum(preco*qtd_vendida) from item_venda\n" +
+"     inner join produto on item_venda.FK_id_produto = produto.id_produto\n" +
+"     inner join filial on produto.FK_ID_FILIAL = filial.ID_FILIAL\n" +
+"     group by filial.nome";
+        Connection con;
+        try {
+            con = GerenciarConexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                String nomeProduto = rs.getString("nome");
+                double valorFaturado = rs.getDouble(2);
+               
+                ItemVenda venda = new ItemVenda();
+                venda.setNomeProduto(nomeProduto);
+                venda.setValorFaturado(valorFaturado);
+                itens.add(venda);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return itens;
+    }
+    
+     public static List<ItemVenda> reporteCategorias() {
+        List<ItemVenda> itens = new ArrayList<>();
+        String query = "select produto.tipo, sum(preco*qtd_vendida) from item_venda\n" +
+"        inner join produto on item_venda.FK_id_produto = produto.id_produto\n" +
+"        group by produto.tipo";
+        Connection con;
+        try {
+            con = GerenciarConexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                String nomeProduto = rs.getString("tipo");
+                double valorFaturado = rs.getDouble(2);
+               
+                ItemVenda venda = new ItemVenda();
+                venda.setNomeProduto(nomeProduto);
+                venda.setValorFaturado(valorFaturado);
                 itens.add(venda);
             }
         } catch (SQLException ex) {

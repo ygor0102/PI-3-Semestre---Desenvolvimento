@@ -12,14 +12,12 @@
         <title>Inicio</title>
     </head>
     <body>
-        <c:import url="Header.jsp"/>
         <header class ="container">
-            <a href="VendaServlet"><h1><img src="img/menu.png" alt ="Logo da LIS"></h1></a>
             <nav class ="menu-opcoes">
                 <ul>
+                    <li> <a href="index.jsp">Menu</a></li>
                     <li> <a href="VendaServlet">Realizar vendas</a></li>
                     <li> <a href="ClienteServlet">Gerenciar clientes e produtos</a></li>
-                    <li> <a href="Cadastro.jsp">Realizar cadastros</a></li>
                     <li> <a href="RelatorioServlet">Extrair relatórios</a></li>
                 </ul>
             </nav>

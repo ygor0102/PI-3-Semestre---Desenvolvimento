@@ -10,7 +10,7 @@ and open the template in the editor.
 
 
 body{
-    color: #333;
+    background-color: #66CDAA;
     text-align: center;
 }
 
@@ -38,32 +38,6 @@ h1 {
     font-style: normal; 
     font-variant: normal; 
     font-weight: 700; 
-    line-height: 26.4px; 
-}
-
-.table{
-    border-spacing: 0.2em;
-    border-collapse: separate;
-}
-
-thead{
-    background-color: #999;
-}
-
-thead th{
-    font-weight: bold;
-    padding: 0.3em 1em;
-    text-align: center;
-}
-
-td{
-    padding: 0.3em;
-}
-
-tr:nth-child(2n){
-    background-color: #ccc;
-}
-
-td:first-child{
-    font-style: italic; 
+    line-height: 26.4px;
+    color: #66CDAA;
 }

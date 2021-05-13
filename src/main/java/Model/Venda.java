@@ -21,7 +21,8 @@ public class Venda {
         this.fkIdCliente = fkIdCliente;
     }
     
-    public Venda(Date dataVenda, double precoTotal, int fkIdCliente, String nomeCliente) {
+    public Venda(int idVenda, Date dataVenda, double precoTotal, int fkIdCliente, String nomeCliente) {
+        this.idVenda = idVenda;
         this.dataVenda = dataVenda;
         this.precoTotal = precoTotal;
         this.fkIdCliente = fkIdCliente;
