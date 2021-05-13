@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastros</title>
+        <title>Realizar cadastro</title>
     </head>
     <body>
         <c:import url="Header.jsp"/>
@@ -21,47 +21,48 @@
        
         <c:if test="${not empty cliente}">
              <form action="AlterarCliente" method="POST">
+                 <fieldset>
         <ul>
             
         <br>
                          
-                             <label for="nome">Nome completo: </label>
-                             <input type="text" name="nome" value="${cliente.nome}" class="form-control"/>
+                             <label for="nome">Nome completo: *</label>
+                             <input type="text" class="form-control" name="nome" value="${cliente.nome}" required>
                             
         <br>
                          
-                             <label for="nascimento">Nascimento: </label>
-                             <input type="text" class="form-control" id="nascimento" name="nascimento" value = "${cliente.nascimento}"placeholder ="Dia/Mês/Ano">
+                             <label for="nascimento">Nascimento: *</label>
+                             <input type="text" class="form-control" id="nascimento" name="nascimento" value = "${cliente.nascimento}"placeholder ="Dia/Mês/Ano" required>
                         
         <br>              
                          
-                             <label for="CPF">CPF: </label>
+                             <label for="CPF">CPF: *</label>
                              <input type="text" class="form-control" id="CPF" name="CPF" value = "${cliente.CPF}" readonly="true">
                         
         <br>              
                        
-                             <label for="sexo">Sexo: </label>
-                             <input type="text" class="form-control" id="sexo" name="sexo" placeholder="M / F" value = "${cliente.sexo}">
+                             <label for="sexo">Sexo: *</label>
+                             <input type="text" class="form-control" id="sexo" name="sexo" placeholder="M / F" value = "${cliente.sexo}" required>
                        
         <br>              
                         
-                             <label for="estado">Estado: </label>
-                             <input type="text" class="form-control" id="estado" name="estado" value = "${cliente.estado}">
+                             <label for="estado">Estado: *</label>
+                             <input type="text" class="form-control" id="estado" name="estado" value = "${cliente.estado}" required>
                      
         <br>              
                          
-                             <label for="UF">UF: </label>
-                             <input type="text" class="form-control" id="UF" name="UF" value = "${cliente.UF}">
+                             <label for="UF">UF: *</label>
+                             <input type="text" class="form-control" id="UF" name="UF" value = "${cliente.UF}" required>
                        
         <br>              
                        
-                             <label for="logradouro">Logradouro: </label>
-                             <input type="text" class="form-control" id="logradouro" name="logradouro" value = "${cliente.logradouro}">
+                             <label for="logradouro">Logradouro: *</label>
+                             <input type="text" class="form-control" id="logradouro" name="logradouro" value = "${cliente.logradouro}" required>
                      
         <br>              
                      
-                             <label for="numero">Numero: </label>
-                             <input type="text" class="form-control" id="numero" name="numero" value = "${cliente.numero}">
+                             <label for="numero">Numero: *</label>
+                             <input type="text" class="form-control" id="numero" name="numero" value = "${cliente.numero}" required>
                        
         <br>              
                        
@@ -75,18 +76,19 @@
                         
          <br>              
                        
-                             <label for="celular">Celular: </label>
-                             <input type="text" class="form-control" id="celular" name="celular" placeholder="11988884444" value = "${cliente.celular}">
+                             <label for="celular">Celular: *</label>
+                             <input type="text" class="form-control" id="celular" name="celular" placeholder="11988884444" value = "${cliente.celular}" required>
                       
          <br>              
                    
-                             <label for="email">E-mail: </label>
-                             <input type="text" class="form-control" id="email" name="email" placeholder="Exemplo@mail.com" value = "${cliente.email}">
+                             <label for="email">E-mail: *</label>
+                             <input type="text" class="form-control" id="email" name="email" placeholder="Exemplo@mail.com" value = "${cliente.email}" required>
                       
                          <br>
-                         <button type="submit" class="btn btn-primary">Alterar!</button>
+                         <button type="submit" class="btn btn-primary">Alterar cliente!</button>
                          
          </ul>
+             </fieldset>
              </form>
                          
              </c:if>
@@ -95,47 +97,48 @@
         
             <c:if test="${empty cliente}">
              <form action="ClienteServlet" method="POST">
+                 <fieldset>
         <ul>
             
         <br>
                      
-                             <label for="nome">Nome completo: </label>
-                             <input type="text" class="form-control" id="nome" name="nome" autofocus required>
+                             <label for="nome">Nome completo: *</label>
+                             <input type="text" class="form-control" id="nome" name="nome" required>
                        
         <br>
                       
-                             <label for="nascimento">Nascimento: </label>
-                             <input type="text" class="form-control" id="nascimento" name="nascimento" placeholder ="Dia/Mês/Ano">
+                             <label for="nascimento">Nascimento: *</label>
+                             <input type="text" class="form-control" id="nascimento" name="nascimento" placeholder ="Dia/Mês/Ano" required>
                      
         <br>              
                       
-                             <label for="cpf">CPF: </label>
-                             <input type="text" class="form-control" id="CPF" name="CPF" >
+                             <label for="cpf">CPF: *</label>
+                             <input type="text" class="form-control" id="CPF" name="CPF" required>
                    
         <br>              
                        
-                             <label for="sexo">Sexo: </label>
-                             <input type="text" class="form-control" id="sexo" name="sexo" placeholder="M / F" >
+                             <label for="sexo">Sexo: *</label>
+                             <input type="text" class="form-control" id="sexo" name="sexo" placeholder="M / F" required>
                        
         <br>              
                        
-                             <label for="estado">Estado: </label>
-                             <input type="text" class="form-control" id="estado" name="estado">
+                             <label for="estado">Estado: *</label>
+                             <input type="text" class="form-control" id="estado" name="estado" required>
                           
          <br>              
                        
-                             <label for="UF">UF: </label>
-                             <input type="text" class="form-control" id="UF" name="UF">
+                             <label for="UF">UF: *</label>
+                             <input type="text" class="form-control" id="UF" name="UF" required>
                        
         <br>                
                          
-                             <label for="logradouro">Logradouro: </label>
-                             <input type="text" class="form-control" id="logradouro" name="logradouro">
+                             <label for="logradouro">Logradouro: *</label>
+                             <input type="text" class="form-control" id="logradouro" name="logradouro" required>
                        
         <br>              
                         
-                             <label for="numero">Numero: </label>
-                             <input type="text" class="form-control" id="numero" name="numero">
+                             <label for="numero">Numero: *</label>
+                             <input type="text" class="form-control" id="numero" name="numero" required>
                        
         <br>              
                       
@@ -149,18 +152,19 @@
                         
          <br>              
                        
-                             <label for="celular">Celular: </label>
-                             <input type="text" class="form-control" id="celular" name="celular" placeholder="11988884444">
+                             <label for="celular">Celular: *</label>
+                             <input type="text" class="form-control" id="celular" name="celular" placeholder="11988884444" required>
                     
          <br>              
                          
-                             <label for="email">E-mail: </label>
-                             <input type="text" class="form-control" id="email" name="email" placeholder="Exemplo@mail.com">
+                             <label for="email">E-mail: *</label>
+                             <input type="text" class="form-control" id="email" name="email" placeholder="Exemplo@mail.com" required>
                       
                          <br>
                          <button type="submit" class="btn btn-primary">Salvar!</button>
                          
          </ul>
+                 </fieldset>
              </form>
              </c:if>
         
@@ -169,47 +173,50 @@
         <legend>Preencha os dados do produto</legend>
         <c:if test="${empty produto}">
              <form action="ProdutoServlet" method="POST">
+                 <fieldset>
         <ul>
             
         <br>
                  
-                             <label for="nome">Nome do produto: </label>
-                             <input type="text" class="form-control" id="nome" name="nome">
+                             <label for="nome">Nome do produto: *</label>
+                             <input type="text" class="form-control" id="nome" name="nome" required>
                          
         <br>
                       
-                             <label for="modelo">Modelo / Marca: </label>
-                             <input type="text" class="form-control" id="nascimento" name="modelo">
+                             <label for="modelo">Modelo / Marca: *</label>
+                             <input type="text" class="form-control" id="nascimento" name="modelo" required>
                        
         <br>              
                       
-                             <label for="tipo">Tipo / Categoria: </label>
-                             <input type="text" class="form-control" id="CPF" name="tipo">
+                             <label for="tipo">Tipo / Categoria: *</label>
+                             <input type="text" class="form-control" id="CPF" name="tipo" required>
                      
         <br>              
                        
-                             <label for="preco">Preço unitário: </label>
-                             <input type="text" class="form-control" id="sexo" name="preco" placeholder="0.00" >
+                             <label for="preco">Preço unitário: *</label>
+                             <input type="text" class="form-control" id="sexo" name="preco" placeholder="0.00" required>
                        
         <br>              
                       
-                             <label for="qtdEstoque">Quantidade para estoque: </label>
-                             <input type="text" class="form-control" id="estado" name="qtdEstoque">
+                             <label for="qtdEstoque">Quantidade para estoque: *</label>
+                             <input type="text" class="form-control" id="estado" name="qtdEstoque" required>
                        
          <br>              
                        
-                             <label for="filial">Filial hierarquica: </label>
-                             <input type="text" class="form-control" id="UF" name="filial" placeholder="Digite o número da filial..." >
+                             <label for="filial">Filial hierarquica: *</label>
+                             <input type="text" class="form-control" id="UF" name="filial" placeholder="Digite o número da filial..." required>
                      
                          <br>
                          <button type="submit" class="btn btn-primary">Salvar!</button>
                     
          </ul>
+                 </fieldset>        
              </form>
              </c:if>
         
         <c:if test="${not empty produto}">
              <form action="AlterarProduto" method="POST">
+                 <fieldset>
         <ul>
             
         <br>
@@ -221,37 +228,38 @@
             
         <br>
                   
-                             <label for="nome">Nome do produto: </label>
-                             <input type="text" class="form-control" id="nome" name="nome" value = "${produto.nome}">
+                             <label for="nome">Nome do produto: *</label>
+                             <input type="text" class="form-control" id="nome" name="nome" value = "${produto.nome}" required>
                    
         <br>
                       
-                             <label for="modelo">Modelo / Marca: </label>
-                             <input type="text" class="form-control" id="nascimento" name="modelo" value = "${produto.modelo}">
+                             <label for="modelo">Modelo / Marca: *</label>
+                             <input type="text" class="form-control" id="nascimento" name="modelo" value = "${produto.modelo}" required>
                         
         <br>              
                       
-                             <label for="tipo">Tipo / Categoria: </label>
-                             <input type="text" class="form-control" id="CPF" name="tipo" value = "${produto.tipo}">
+                             <label for="tipo">Tipo / Categoria: *</label>
+                             <input type="text" class="form-control" id="CPF" name="tipo" value = "${produto.tipo}" required>
                   
         <br>              
                      
-                             <label for="preco">Preço unitário: </label>
-                             <input type="text" class="form-control" id="sexo" name="preco" placeholder="0.00" value = "${produto.preco}">
+                             <label for="preco">Preço unitário: *</label>
+                             <input type="text" class="form-control" id="sexo" name="preco" placeholder="0.00" value = "${produto.preco}" required>
                       
         <br>              
                     
-                             <label for="qtdEstoque">Quantidade para estoque: </label>
-                             <input type="text" class="form-control" id="estado" name="qtdEstoque" value = "${produto.qtdEstoque}">
+                             <label for="qtdEstoque">Quantidade para estoque: *</label>
+                             <input type="text" class="form-control" id="estado" name="qtdEstoque" value = "${produto.qtdEstoque}" required>
                     
          <br>              
                       
-                             <label for="filial">Filial hierarquica: </label>
-                             <input type="text" class="form-control" id="UF" name="filial" value = "${produto.FKFilial}">
+                             <label for="filial">Filial hierarquica: *</label>
+                             <input type="text" class="form-control" id="UF" name="filial" value = "${produto.FKFilial}" required>
                          
                          <br>
                          <button type="submit" class="btn btn-primary">Alterar produto!</button>    
          </ul>
+                 </fieldset>
              </form>
              </c:if>
     

@@ -34,21 +34,27 @@
                
         <script>
        
-            function ValidaQtd(qtdEstoque){
+            function ValidaQtd(qtdEstoque, idProduto){
                 var qtdProduto = document.getElementById('qtd_produto').value;
                 
                 if(qtdProduto > qtdEstoque) {
                     alert("O produto não possui essa quantidade disponível!");
                     document.getElementById("btAdd").disabled = true;
+                    document.getElementById('qtd_produto').readOnly = false;
+                    
                 }
                 
                 else if(qtdProduto <=0) {
                     alert("A quantidade precisa ser maior que 0!");
                     document.getElementById("btAdd").disabled = true;
+                    document.getElementById('qtd_produto').readOnly = false;
                 }
                 else{
                     alert("Quantidade válida!");
                     document.getElementById("btAdd").disabled = false;
+                    document.getElementById("id_produto").value = idProduto;
+                    document.getElementById('qtd_produto').readOnly = true;
+                    
                 }
             }
             
@@ -76,7 +82,7 @@
                         <td>${produto.preco}</td>
                         <td>${produto.qtdEstoque}</td>
                         <td>${produto.FKFilial}</td>
-                        <td><button type="button" class="btn btn-link" onclick="ValidaQtd(${produto.qtdEstoque})">Validar qtd.</button></td>
+                        <td><button type="button" class="btn btn-link" onclick="ValidaQtd(${produto.qtdEstoque}, ${produto.idProduto})">Validar qtd.</button></td>
                     </tr>
                 </c:forEach>
             </tbody>
@@ -84,11 +90,13 @@
     
                 <br>
               <form action="CarrinhoServlet" method="POST">
-                    <p>Quantidade desejada: </p><input type="number" min="1" class="form-control" id="qtd_produto" name="qtd_produto" placeholder="Digite a quantidade..."/>
+                  <fieldset>
+                    <p>Quantidade desejada: </p><input type="number" min="1" class="form-control" id="qtd_produto" name="qtd_produto" placeholder="Digite a quantidade..." required>
                     <br>
-                    <p>Código do produto: </p><input type="number" min="1" class="form-control" id="id_produto" name="id_produto" placeholder="Digite o código..."/>          
+                    <p>Código do produto: </p><input type="number" min="1" class="form-control" id="id_produto" name="id_produto" placeholder="Digite o código..." required readonly="true" required>          
                     <br>
                     <button type="submit" class="btn btn-primary" id="btAdd" name="btAdd" disabled="true">Adicionar ao carrinho</button>
-            </form>
+                  </fieldset>
+              </form>
     </body>
 </html>

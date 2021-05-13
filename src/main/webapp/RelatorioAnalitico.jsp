@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Reporte Sintético</title>
+        <title>Reporte Analítico</title>
     </head>
     <body>
         <c:import url="Header.jsp"/>
@@ -26,9 +26,16 @@
         <br>
         <img src="img/report.png" alt ="report">
         <legend>Reporte Analítico de vendas<legend>
-        <br>
+        <form action="RelatorioDataAnaliticoServlet" method="GET">
+            <fieldset>
+            <br>
+            <p>Data inicial: <input type="date" id="start" name="start" required> Data final:  <input type="date" id="end" name="end" required> <button type="submit" class="btn btn-primary">Pesquisar</button></p>
+            <br> 
+            </fieldset>        
+        </form>
        <center> <table>
             <thead>
+                <th>Data da Venda</th>
                 <th>ID da Venda</th>
                 <th>ID do Produto</th>
                 <th>Quantidade vendida</th>
@@ -42,6 +49,7 @@
             <tbody> 
                 <c:forEach var="item" items="${listaVendas02}">
                     <tr>
+                        <td>${item.dataVenda}</td>
                         <td>${item.fkIdVenda}</td>
                         <td>${item.fkIdProduto}</td>
                         <td>${item.qtdVendida}</td>

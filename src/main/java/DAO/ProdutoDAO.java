@@ -48,7 +48,7 @@ public class ProdutoDAO {
         boolean ok = true;
         try {
             Connection con = GerenciarConexao.getConexao();
-            String query = "insert into carrinho(id_produto, nome, modelo, tipo, preco, qtd_produto, filial) values (?,?,?,?,?,?,?)";
+            String query = "insert into carrinho(id_produto, nome, modelo, tipo, preco, qtd_produto, fk_id_filial) values (?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, produto.getIdProduto());
             ps.setString(2, produto.getNome());
@@ -107,7 +107,7 @@ public class ProdutoDAO {
                 String tipo = rs.getString("tipo");
                 double preco = rs.getDouble("preco");
                 int qtdEstoque = rs.getInt("qtd_produto");
-                int FKFilial = rs.getInt("filial");
+                int FKFilial = rs.getInt("fk_id_filial");
                
                 Produto produto = new Produto(idProduto, nome, modelo, tipo, preco, qtdEstoque, FKFilial);
                 produtos.add(produto);

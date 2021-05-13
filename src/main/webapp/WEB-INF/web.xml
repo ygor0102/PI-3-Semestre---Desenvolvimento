@@ -52,6 +52,14 @@
         <servlet-name>RelatorioCategorias</servlet-name>
         <servlet-class>Servlet.Venda.RelatorioCategorias</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RelatorioDataServlet</servlet-name>
+        <servlet-class>Servlet.Venda.RelatorioDataServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RelatorioDataAnaliticoServlet</servlet-name>
+        <servlet-class>Servlet.Venda.RelatorioDataAnaliticoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/ClienteServlet</url-pattern>
@@ -103,6 +111,14 @@
     <servlet-mapping>
         <servlet-name>RelatorioCategorias</servlet-name>
         <url-pattern>/RelatorioCategorias</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioDataServlet</servlet-name>
+        <url-pattern>/RelatorioDataServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioDataAnaliticoServlet</servlet-name>
+        <url-pattern>/RelatorioDataAnaliticoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

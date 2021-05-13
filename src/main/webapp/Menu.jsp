@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inicio</title>
+        <title>Menu</title>
     </head>
     <body>
         <header class ="container">
@@ -18,6 +18,7 @@
                     <li> <a href="index.jsp">Menu</a></li>
                     <li> <a href="VendaServlet">Realizar vendas</a></li>
                     <li> <a href="ClienteServlet">Gerenciar clientes e produtos</a></li>
+                    <li> <a href="Cadastro.jsp">Realizar cadastros</a></li>
                     <li> <a href="RelatorioServlet">Extrair relatórios</a></li>
                 </ul>
             </nav>

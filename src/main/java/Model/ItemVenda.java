@@ -1,6 +1,8 @@
 
 package Model;
 
+import java.util.Date;
+
 public class ItemVenda {
     private int idItem;
     private int FkIdVenda;
@@ -11,6 +13,7 @@ public class ItemVenda {
     private double precoProduto;
     private double valorFaturado;
     private int FkIdFilial;
+    private Date dataVenda;
 
     public ItemVenda(int FkIdVenda, int FkIdProduto, int QtdVendida) {
         this.FkIdVenda = FkIdVenda;
@@ -18,7 +21,7 @@ public class ItemVenda {
         this.QtdVendida = QtdVendida;
     }
     
-     public ItemVenda(int FkIdVenda, int FkIdProduto, int QtdVendida, String nomeProduto, String tipoProduto, double precoProduto, double valorFaturado, int FkIdFilial) {
+     public ItemVenda(Date dataVenda, int FkIdVenda, int FkIdProduto, int QtdVendida, String nomeProduto, String tipoProduto, double precoProduto, double valorFaturado, int FkIdFilial) {
         this.FkIdVenda = FkIdVenda;
         this.FkIdProduto = FkIdProduto;
         this.QtdVendida = QtdVendida;
@@ -27,10 +30,21 @@ public class ItemVenda {
         this.precoProduto = precoProduto;
         this.valorFaturado = valorFaturado;
         this.FkIdFilial = FkIdFilial;
+        this.dataVenda = dataVenda;
     }
 
     public ItemVenda() {
     }
+
+    public Date getDataVenda() {
+        return dataVenda;
+    }
+
+    public void setDataVenda(Date dataVenda) {
+        this.dataVenda = dataVenda;
+    }
+    
+    
 
     public String getTipoProduto() {
         return tipoProduto;

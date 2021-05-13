@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Reporte Sintético</title>
+        <title>Reporte Categorias</title>
     </head>
     <body>
         <c:import url="Header.jsp"/>
@@ -25,8 +25,7 @@
         <br>
         <img src="img/report.png" alt ="report">
         <legend>Vendas por categorias de produto</legend>
-        <br>
-        <br>
+       <br>
    
        <center> <table>
             <thead>

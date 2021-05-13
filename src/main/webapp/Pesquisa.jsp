@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-        <title>Gerenciador</title>
+        <title>Gerenciar clientes e produtos</title>
     </head>
     <body>
         <c:import url="Header.jsp"/>
@@ -21,7 +21,7 @@
             function confirmarExclusao(CPF) {
                 console.log("Sucesso!" , CPF);
                 $("#cpfCliente").html(CPF);
-                $(".modal").show();
+                $("#modal1").show();
             }
          
             
@@ -112,7 +112,7 @@
                 </c:forEach>
             </tbody>
         </table>
-        <div class="modal" tabindex="-1">
+        <div class="modal" tabindex="-1" id="modal1">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">

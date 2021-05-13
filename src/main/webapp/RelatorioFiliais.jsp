@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Reporte Sintético</title>
+        <title>Reporte Filiais</title>
     </head>
     <body>
         <c:import url="Header.jsp"/>
@@ -25,7 +25,6 @@
         <br>
         <img src="img/report.png" alt ="report">
         <legend>Vendas por filiais ativas</legend>
-        <br>
         <br>
    
        <center> <table>

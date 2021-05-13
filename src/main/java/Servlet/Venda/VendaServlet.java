@@ -12,6 +12,7 @@ import Model.Produto;
 import Model.Venda;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -31,9 +32,10 @@ public class VendaServlet extends HttpServlet {
         
         Date dt = new Date();
         
+        
         SimpleDateFormat formato = new SimpleDateFormat("dd/mm/yyyy");
         formato.format(dt);
-
+        
         Date dataVenda = dt;
         double PrecoTotal = ProdutoDAO.GetPrecoTotal();
         int FkIdCliente = Integer.parseInt(request.getParameter("id_cliente"));

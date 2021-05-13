@@ -26,7 +26,15 @@
         <br>
         <img src="img/report.png" alt ="report">
         <legend>Reporte Sintético de vendas<legend>
-        <br>
+           
+        <form action="RelatorioDataServlet" method="GET">
+            <fieldset>
+            <br>
+            <p>Data inicial: <input type="date" id="start" name="start" required> Data final:  <input type="date" id="end" name="end" required> <button type="submit" class="btn btn-primary">Pesquisar</button></p>
+            <br> 
+            </fieldset>        
+        </form>
+                
        <center> <table>
             <thead>
                 <th>ID da venda</th>
