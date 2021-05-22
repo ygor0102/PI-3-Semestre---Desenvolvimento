@@ -98,5 +98,6 @@
                     <button type="submit" class="btn btn-primary" id="btAdd" name="btAdd" disabled="true">Adicionar ao carrinho</button>
                   </fieldset>
               </form>
+                <c:import url="Footer.jsp"/>
     </body>
 </html>

@@ -13,6 +13,8 @@
     </head>
     <body>
         <c:import url="Header.jsp"/>
+         <b><i>Bem-vindo ${sessionScope.usuario.nome}!</i></b>
+         <i><a href="LogoutServlet">Logout</a></i>
         <header class ="container">
             <a href="VendaServlet"><h1><img src="img/menu.png" alt ="Logo da LIS"></h1></a>
             <nav class ="menu-opcoes">
@@ -23,6 +25,7 @@
                     <li> <a href="RelatorioServlet">Extrair relatórios</a></li>
                 </ul>
             </nav>
-        </header> 
+        </header>
+        <c:import url="Footer.jsp"/>
     </body>
 </html>

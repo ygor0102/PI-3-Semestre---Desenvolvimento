@@ -263,6 +263,6 @@
              </form>
              </c:if>
     
-       
+       <c:import url="Footer.jsp"/>
     </body>
 </html>
