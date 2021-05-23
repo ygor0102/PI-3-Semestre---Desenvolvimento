@@ -9,21 +9,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+        <link rel="stylesheet" href="../css/index.css">
         <title>Realizar venda</title>
  
     </head>
     
-    
     <body>
-              <c:import url="Header.jsp"/>
+              <c:import url="../Header.jsp"/>
                <header class ="container">
                <nav class ="menu-opcoes">
                 <ul>
                     <li> <a href="index.jsp">Menu</a></li>
                     <li> <a href="ClienteServlet">Gerenciar clientes e produtos</a></li>
-                     <li> <a href="Cadastro.jsp">Realizar cadastros</a></li>
-                    <li> <a href="RelatorioServlet">Extrair relatórios</a></li>
+                    <li><a href="Cadastro.jsp">Realizar cadastros</a></li>
+                     <c:if test="${sessionScope.usuario.isGerente() || sessionScope.usuario.isAdmin()}">
+                    <li> <a href="Admin_e_Gerente/RelatorioServlet">Extrair relatórios</a></li>
+                    </c:if>
                     <li> <a href="CarrinhoServlet">Carrinho de compras</a></li>
 
                 </ul>
@@ -98,6 +99,6 @@
                     <button type="submit" class="btn btn-primary" id="btAdd" name="btAdd" disabled="true">Adicionar ao carrinho</button>
                   </fieldset>
               </form>
-                <c:import url="Footer.jsp"/>
+                <c:import url="../Footer.jsp"/>
     </body>
 </html>

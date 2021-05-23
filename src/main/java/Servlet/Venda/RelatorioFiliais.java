@@ -26,7 +26,7 @@ public class RelatorioFiliais extends HttpServlet {
             
          List<ItemVenda> listaVendas03 = VendaDAO.reporteFiliais();
          request.setAttribute("listaVendas03", listaVendas03);
-         request.getRequestDispatcher("/RelatorioFiliais.jsp").forward(request, response);
+         request.getRequestDispatcher("/Protegido/Admin_e_Gerente/RelatorioFiliais.jsp").forward(request, response);
          
     }
 }

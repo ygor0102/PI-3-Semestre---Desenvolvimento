@@ -9,11 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="../css/index.css">
         
         <title>Gerenciar clientes e produtos</title>
     </head>
     <body>
-        <c:import url="Header.jsp"/>
+        <c:import url="../Header.jsp"/>
         <c:import url="Menu.jsp"/>
         
         <script>
@@ -69,7 +70,7 @@
         </script>
         
         <br>
-        <img src="img/user.png" alt ="cliente">
+        <img src="../img/user.png" alt ="cliente">
         <legend>Clientes cadastrados na loja</legend>
         <br>
        <center> <table>
@@ -133,7 +134,7 @@
         <br>
         <br>
         <br>
-        <img src="img/product.png" alt ="product">
+        <img src="../img/product.png" alt ="product">
         <legend>Produtos cadastrados na loja</legend>
         <br>
         <table>
@@ -185,6 +186,6 @@
             </div>
           </div>
         
-        <c:import url="Footer.jsp"/>
+        <c:import url="../Footer.jsp"/>
     </body>
 </html>

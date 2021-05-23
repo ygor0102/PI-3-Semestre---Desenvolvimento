@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <filter-class>Filter.AutorizacaoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <url-pattern>/Protegido/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>ClienteServlet</servlet-name>
         <servlet-class>Servlet.Cliente.ClienteServlet</servlet-class>
@@ -70,63 +78,63 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
-        <url-pattern>/ClienteServlet</url-pattern>
+        <url-pattern>/Protegido/ClienteServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlterarCliente</servlet-name>
-        <url-pattern>/AlterarCliente</url-pattern>
+        <url-pattern>/Protegido/AlterarCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirCliente</servlet-name>
-        <url-pattern>/ExcluirCliente</url-pattern>
+        <url-pattern>/Protegido/ExcluirCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProdutoServlet</servlet-name>
-        <url-pattern>/ProdutoServlet</url-pattern>
+        <url-pattern>/Protegido/ProdutoServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlterarProduto</servlet-name>
-        <url-pattern>/AlterarProduto</url-pattern>
+        <url-pattern>/Protegido/AlterarProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirProduto</servlet-name>
-        <url-pattern>/ExcluirProduto</url-pattern>
+        <url-pattern>/Protegido/ExcluirProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>VendaServlet</servlet-name>
-        <url-pattern>/VendaServlet</url-pattern>
+        <url-pattern>/Protegido/VendaServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CarrinhoServlet</servlet-name>
-        <url-pattern>/CarrinhoServlet</url-pattern>
+        <url-pattern>/Protegido/CarrinhoServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirCarrinho</servlet-name>
-        <url-pattern>/ExcluirCarrinho</url-pattern>
+        <url-pattern>/Protegido/ExcluirCarrinho</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RelatorioServlet</servlet-name>
-        <url-pattern>/RelatorioServlet</url-pattern>
+        <url-pattern>/Protegido/Admin_e_Gerente/RelatorioServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RelatorioAnaliticoServlet</servlet-name>
-        <url-pattern>/RelatorioAnaliticoServlet</url-pattern>
+        <url-pattern>/Protegido/Admin_e_Gerente/RelatorioAnaliticoServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RelatorioFiliais</servlet-name>
-        <url-pattern>/RelatorioFiliais</url-pattern>
+        <url-pattern>/Protegido/Admin_e_Gerente/RelatorioFiliais</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RelatorioCategorias</servlet-name>
-        <url-pattern>/RelatorioCategorias</url-pattern>
+        <url-pattern>/Protegido/Admin_e_Gerente/RelatorioCategorias</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RelatorioDataServlet</servlet-name>
-        <url-pattern>/RelatorioDataServlet</url-pattern>
+        <url-pattern>/Protegido/Admin_e_Gerente/RelatorioDataServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RelatorioDataAnaliticoServlet</servlet-name>
-        <url-pattern>/RelatorioDataAnaliticoServlet</url-pattern>
+        <url-pattern>/Protegido/Admin_e_Gerente/RelatorioDataAnaliticoServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -141,4 +149,9 @@
             30
         </session-timeout>
     </session-config>
+    
+    <welcome-file-list>
+        <welcome-file>Protegido/index.jsp</welcome-file>
+    </welcome-file-list>
+    
 </web-app>

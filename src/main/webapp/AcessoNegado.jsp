@@ -15,6 +15,7 @@
     </head>
     <body>
         <h1>Você não tem permissão para acessar o recurso!</h1>
-        <c:import url="footer.jsp"/>
+        <c:import url="Footer.jsp"/>
+        <i><a href="LogoutServlet">Fazer logout...</a></i>
     </body>
 </html>

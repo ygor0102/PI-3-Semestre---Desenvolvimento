@@ -48,7 +48,7 @@ public class ProdutoServlet extends HttpServlet {
          request.setAttribute("listaProdutos", listaProdutos);
        
          
-         request.getRequestDispatcher("/Pesquisa.jsp").forward(request, response);
+         request.getRequestDispatcher("/Protegido/Pesquisa.jsp").forward(request, response);
     }
     
 }

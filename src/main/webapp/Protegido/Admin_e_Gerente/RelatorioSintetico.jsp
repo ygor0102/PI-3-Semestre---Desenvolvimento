@@ -9,14 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+         <link rel="stylesheet" href="../../css/index.css">
         <title>Reporte Sintético</title>
     </head>
     <body>
-        <c:import url="Header.jsp"/>
+        <c:import url="../../Header.jsp"/>
          <nav class ="menu-opcoes">
                 <ul>
-                    <li> <a href="index.jsp">Menu</a></li>
+                    <li> <a href="../index.jsp">Menu</a></li>
                     <li> <a href="RelatorioAnaliticoServlet">Reporte Analítico</a></li>
                     <li> <a href="RelatorioFiliais">Vendas por filiais</a></li>
                     <li> <a href="RelatorioCategorias">Vendas por categorias</a></li>
@@ -24,7 +24,7 @@
             </nav>
              <br>
         <br>
-        <img src="img/report.png" alt ="report">
+        <img src="../../img/report.png" alt ="report">
         <legend>Reporte Sintético de vendas<legend>
            
         <form action="RelatorioDataServlet" method="GET">
@@ -60,6 +60,6 @@
            <br>
            <br>
           
-        <c:import url="Footer.jsp"/>
+        <c:import url="../../Footer.jsp"/>
     </body>
 </html>

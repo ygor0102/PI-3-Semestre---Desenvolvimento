@@ -35,7 +35,7 @@ public class CarrinhoServlet extends HttpServlet {
          
          double PrecoTotal = ProdutoDAO.GetPrecoTotal();
          request.setAttribute("PrecoTotal", PrecoTotal);
-         request.getRequestDispatcher("/Carrinho.jsp").forward(request, response);
+         request.getRequestDispatcher("/Protegido/Carrinho.jsp").forward(request, response);
 
     }
     

@@ -9,33 +9,34 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Reporte Categorias</title>
+        <link rel="stylesheet" href="../../css/index.css">
+        <title>Reporte Filiais</title>
     </head>
     <body>
-        <c:import url="Header.jsp"/>
+        <c:import url="../../Header.jsp"/>
          <nav class ="menu-opcoes">
                 <ul>
-                    <li> <a href="index.jsp">Menu</a></li>
+                    <li> <a href="../index.jsp">Menu</a></li>
                     <li> <a href="RelatorioServlet">Reporte Sintético</a></li>
                     <li> <a href="RelatorioAnaliticoServlet">Reporte Analítico</a></li>
-                    <li> <a href="RelatorioFiliais">Vendas por filiais</a></li>
+                    <li> <a href="RelatorioCategorias">Vendas por categorias</a></li>
                 </ul>
             </nav>
              <br>
         <br>
-        <img src="img/report.png" alt ="report">
-        <legend>Vendas por categorias de produto</legend>
-       <br>
+        <img src="../../img/report.png" alt ="report">
+        <legend>Vendas por filiais ativas</legend>
+        <br>
    
        <center> <table>
             <thead>
-                <th>Categoria</th>
+                <th>Filial</th>
                 <th>Total receita faturada</th>
               
                 
             </thead>
             <tbody> 
-                <c:forEach var="item" items="${listaVendas04}">
+                <c:forEach var="item" items="${listaVendas03}">
                     <tr>
                        <td>${item.nomeProduto}</td>
                         <td>${item.valorFaturado}</td>  
@@ -46,6 +47,6 @@
            <br>
            <br>
           
-        <c:import url="Footer.jsp"/>
+        <c:import url="../../Footer.jsp"/>
     </body>
 </html>

@@ -41,13 +41,13 @@ public class AutorizacaoFilter implements Filter {
         // PASSO 1 - USUARIO ESTA LOGADO?
         HttpSession session = httpServletRequest.getSession();
         if (session.getAttribute("usuario") == null) {
-            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/login.jsp");
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/Login.jsp");
         }
         
         // PASSO 2 - USUARIO TEM PERMISSAO?
        
         if (!verificarAcesso(httpServletRequest)) {
-            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/acessoNegado.jsp");
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/AcessoNegado.jsp");
         }
         
         
@@ -59,8 +59,8 @@ public class AutorizacaoFilter implements Filter {
         Usuario usuario = (Usuario) httpServletRequest.getSession().getAttribute("usuario");
         boolean acessoOk = true;
         if (
-           (url.contains("/protegido/gerente") && !usuario.isGerente())
-         || (url.contains("/protegido/admin") && !usuario.isAdmin())      
+           (url.contains("/Protegido/Admin_e_Gerente") && !usuario.isGerente())
+         && (url.contains("/Protegido/Admin_e_Gerente") && !usuario.isAdmin())     
           ) {
             acessoOk = false;
         }

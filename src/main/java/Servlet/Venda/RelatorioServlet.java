@@ -26,7 +26,7 @@ public class RelatorioServlet extends HttpServlet {
             
          List<Venda> listaVendas01 = VendaDAO.reporteSintetico();
          request.setAttribute("listaVendas01", listaVendas01);
-         request.getRequestDispatcher("/RelatorioSintetico.jsp").forward(request, response);
+         request.getRequestDispatcher("/Protegido/Admin_e_Gerente/RelatorioSintetico.jsp").forward(request, response);
          
     }
 

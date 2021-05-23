@@ -9,14 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="../css/index.css">
         <title>Realizar cadastro</title>
     </head>
     <body>
-        <c:import url="Header.jsp"/>
+        <c:import url="../Header.jsp"/>
         <br>
          <c:import url="Menu.jsp"/>
     <br>
-    <img src="img/user.png" alt ="cliente">
+    <img src="../img/user.png" alt ="cliente">
     <legend>Preencha os dados do cliente</legend>
        
         <c:if test="${not empty cliente}">
@@ -169,7 +170,7 @@
              </c:if>
         
     <br>
-        <img src="img/product.png" alt ="cliente">
+        <img src="../img/product.png" alt ="cliente">
         <legend>Preencha os dados do produto</legend>
         <c:if test="${empty produto}">
              <form action="ProdutoServlet" method="POST">
@@ -263,6 +264,6 @@
              </form>
              </c:if>
     
-       <c:import url="Footer.jsp"/>
+       <c:import url="../Footer.jsp"/>
     </body>
 </html>

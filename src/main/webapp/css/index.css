@@ -10,7 +10,7 @@ and open the template in the editor.
 
 
 body{
-    background-color: #097880;
+    background-color: #FFFFFF;
     text-align: center;
 }
 
@@ -40,4 +40,31 @@ h1 {
     font-weight: 700; 
     line-height: 26.4px;
     color: #66CDAA;
+}
+
+.table{
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
+thead{
+    background-color: #1E90FF;
+}
+
+thead th{
+    font-weight: bold;
+    padding: 0.3em 1em;
+    text-align: center;
+}
+
+td{
+    padding: 0.3em;
+}
+
+tr:nth-child(2n){
+    background-color: #ccc;
+}
+
+td:first-child{
+    font-style: italic; 
 }

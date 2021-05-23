@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
             if (senhaOK) { // Login OK
                 HttpSession sessao = request.getSession();
                 sessao.setAttribute("usuario", usuario);
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("Protegido/index.jsp");
             } else { // Login falhou
                 response.sendRedirect("Login.jsp?erroLogin=true");
             }

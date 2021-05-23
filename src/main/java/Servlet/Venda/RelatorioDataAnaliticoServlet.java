@@ -50,7 +50,7 @@ public class RelatorioDataAnaliticoServlet extends HttpServlet {
         
          List<ItemVenda> listaVendas02 = VendaDAO.reporteAnaliticoPorDatas(Inicial, Final);
          request.setAttribute("listaVendas02", listaVendas02);
-         request.getRequestDispatcher("/RelatorioAnalitico.jsp").forward(request, response);
+         request.getRequestDispatcher("/Protegido/Admin_e_Gerente/RelatorioAnalitico.jsp").forward(request, response);
          
     }
 

@@ -10,10 +10,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="../css/index.css">
         <title>Carrinho de compras</title>
     </head>
     <body>
-        <c:import url="Header.jsp"/>
+        <c:import url="../Header.jsp"/>
         <c:import url="Menu.jsp"/>
         
         <script>
@@ -141,17 +142,15 @@
          <br>
          
         <form action="VendaServlet" method="POST">
-            <fieldset>
+        <fieldset>
         <label>Digite o ID do cliente responsável pela compra: *</label><input type="number" min="1" class="form-control" id="id_cliente" name="id_cliente" placeholder="" required>
         <br>
         <button type="submit" class="btn btn-primary" id="btnFinaliza" name ="btnFinaliza">Clique aqui para finalizar!</button>
         
         </fieldset>
         </form>
-  
          
-         
-       <c:import url="Footer.jsp"/>
+       <c:import url="../Footer.jsp"/>
     
     </body>
 </html>

@@ -34,7 +34,7 @@ public class AlterarCliente extends HttpServlet {
         
         request.setAttribute("cliente", cliente);
         
-         request.getRequestDispatcher("/Cadastro.jsp").forward(request, response);
+         request.getRequestDispatcher("/Protegido/Cadastro.jsp").forward(request, response);
         
         
     }
