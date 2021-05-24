@@ -1,0 +1,104 @@
+Projeto Integrador - Grupo 02.
+
+Conexão JavaDB - ProjetoLIS:
+
+Nome do banco de dados:
+DBLIS
+
+Tabelas criadas:
+cliente
+produto
+venda
+item_venda
+filial
+carrinho
+usuario
+
+Scripts para criação das tabelas:
+
+create table cliente(
+id_cliente INT not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+nome varchar(40) not null,
+nascimento date not null,
+CPF varchar(14) not null,
+sexo varchar(1) not null,
+estado varchar (20) not null,
+UF varchar (2) not null,
+logradouro varchar (50) not null,
+numero_residencia int not null,
+complemento varchar(30),
+telefone varchar(13),
+celular varchar(14) not null,
+email varchar(40) not null
+);
+
+
+create table filial (
+id_filial INT not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+nome varchar (30) not null,
+cidade varchar (30) not null,
+uf varchar (2) not null
+);
+
+create table produto (
+id_produto INT not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+nome varchar (30) not null,
+modelo varchar (30) not null,
+tipo varchar (45) not null,
+preco decimal (10,2) not null,
+qtd_estoque integer not null,
+fk_id_filial int not null,
+foreign key (fk_id_filial) references filial (id_filial));
+
+create table venda(
+id_venda INT not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+data_venda date not null,
+preco_total decimal (10,2) not null,
+fk_id_cliente int not null,
+foreign key (fk_id_cliente) references cliente (id_cliente));
+
+create table item_venda(
+id_item INT not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+FK_id_venda int not null,
+FK_id_produto int not null,
+qtd_vendida int not null,
+foreign key (FK_id_venda) references venda (id_venda),
+foreign key (Fk_id_produto) references produto (id_produto));
+
+create table carrinho(
+id_carrinho INT not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+id_produto int not null,
+nome varchar (30) not null,
+modelo varchar (30) not null,
+tipo varchar (45) not null,
+preco decimal (10,2) not null,
+qtd_produto integer not null,
+fk_id_filial int not null
+);
+
+create table usuario(
+id_usuario INT not null primary key GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+nome varchar(40) not null,
+login varchar(40) not null,
+senha varchar(200) not null,
+perfil varchar (50) not null,
+fk_id_filial int not null,
+foreign key (fk_id_filial) references filial (id_filial)
+);
+
+Inserção de filiais. A ideia do sistema é ter 6 filiais ativas: 
+
+insert into filial (nome, cidade, uf) values
+('Filial 01','São Paulo','SP'),
+('Filial 02','Rio de Janeiro','RJ'),
+('Filial 03','Alphaville','SP'),
+('Filial 04','Belo Horizonte','MG'),
+('Filial 05','Uberlândia','MG'),
+('Filial 06','Curitiba','PR');
+
+
+
+
+
+
+

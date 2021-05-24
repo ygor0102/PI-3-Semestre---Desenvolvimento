@@ -9,6 +9,7 @@ import DAO.ProdutoDAO;
 import DAO.VendaDAO;
 import Model.ItemVenda;
 import Model.Produto;
+import Model.Usuario;
 import Model.Venda;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -70,8 +71,18 @@ public class VendaServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             
-         List<Produto> listaProdutos = ProdutoDAO.listaProdutos();
-         request.setAttribute("listaProdutos", listaProdutos);
+        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+        Usuario usuario = (Usuario) httpServletRequest.getSession().getAttribute("usuario");
+        
+        if(usuario.isGerente()){
+            List<Produto> listaProdutos = ProdutoDAO.listaProdutos();
+            request.setAttribute("listaProdutos", listaProdutos);
+        }else{
+            
+            List<Produto> listaProdutos = ProdutoDAO.listaProdutosFilial(Integer.parseInt(usuario.getFilial()));
+            request.setAttribute("listaProdutos", listaProdutos);  
+        }
+        
          request.getRequestDispatcher("/Protegido/Venda.jsp").forward(request, response);
     }
 

@@ -9,6 +9,7 @@ import DAO.ClienteDAO;
 import DAO.ProdutoDAO;
 import Model.Cliente;
 import Model.Produto;
+import Model.Usuario;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -27,14 +28,31 @@ public class CarrinhoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-         List<Produto> listaCarrinho = ProdutoDAO.listaCarrinho();
-         request.setAttribute("listaCarrinho", listaCarrinho);
+        
          
+        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+        Usuario usuario = (Usuario) httpServletRequest.getSession().getAttribute("usuario");
+        
+        if(usuario.isGerente()){
+            List<Produto> listaCarrinho = ProdutoDAO.listaCarrinho();
+            request.setAttribute("listaCarrinho", listaCarrinho);
+            
+            double PrecoTotal = ProdutoDAO.GetPrecoTotal();
+            request.setAttribute("PrecoTotal", PrecoTotal);
+         
+         
+        }else{
+            
+            List<Produto> listaCarrinho = ProdutoDAO.listaCarrinhoFilial(Integer.parseInt(usuario.getFilial()));
+            request.setAttribute("listaCarrinho", listaCarrinho);
+            
+            double PrecoTotal = ProdutoDAO.GetPrecoTotalFilial(Integer.parseInt(usuario.getFilial()));
+            request.setAttribute("PrecoTotal", PrecoTotal);
+        }
+              
          List<Cliente> listaClientes = ClienteDAO.listaClientesComID();
          request.setAttribute("listaClientes", listaClientes);
          
-         double PrecoTotal = ProdutoDAO.GetPrecoTotal();
-         request.setAttribute("PrecoTotal", PrecoTotal);
          request.getRequestDispatcher("/Protegido/Carrinho.jsp").forward(request, response);
 
     }

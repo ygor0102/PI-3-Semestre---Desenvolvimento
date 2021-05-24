@@ -185,7 +185,18 @@
         <br>
                       
                              <label for="modelo">Modelo / Marca: *</label>
-                             <input type="text" class="form-control" id="nascimento" name="modelo" required>
+                             <select name="modelo" id="modelo" class="form-control" required>
+                                    <option value="Fender">Fender</option>
+                                    <option value="Taylor">Taylor</option>
+                                    <option value="Gibson">Gibson</option>
+                                    <option value="Core">Core</option>
+                                    <option value="Tajima">Tajima</option>
+                                    <option value="Crafter">Crafter</option>
+                                    <option value="Sony">Sony</option>
+                                    <option value="JBL">JBL</option>
+                                    <option value="Drums">Drums</option>
+                                    <option value="Yamaha">Yamaha</option>
+                            </select>
                        
         <br>              
                       
@@ -202,12 +213,32 @@
                              <label for="qtdEstoque">Quantidade para estoque: *</label>
                              <input type="text" class="form-control" id="estado" name="qtdEstoque" required>
                        
-         <br>              
+        
+        <c:if test="${sessionScope.usuario.isGerente()}">
+                        <br>
+                      
+                             <label for="filial">Filial hierarquica: *</label>
+                             <select name="filial" id="filial" class="form-control" required>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                            </select>
+                       
+                        <br>
+        </c:if>
+                        
+        
+         <c:if test="${!sessionScope.usuario.isGerente()}">                    
+        <br>              
                        
                              <label for="filial">Filial hierarquica: *</label>
-                             <input type="text" class="form-control" id="UF" name="filial" placeholder="Digite o número da filial..." required>
+                             <input type="text" class="form-control" id="filial" name="filial" value = "${sessionScope.usuario.filial}" readOnly required>
                      
-                         <br>
+         <br>
+         </c:if>
                          <button type="submit" class="btn btn-primary">Salvar!</button>
                     
          </ul>
@@ -232,12 +263,24 @@
                              <label for="nome">Nome do produto: *</label>
                              <input type="text" class="form-control" id="nome" name="nome" value = "${produto.nome}" required>
                    
-        <br>
+         <br>
                       
                              <label for="modelo">Modelo / Marca: *</label>
-                             <input type="text" class="form-control" id="nascimento" name="modelo" value = "${produto.modelo}" required>
-                        
-        <br>              
+                             <select name="modelo" id="modelo" class="form-control" required>
+                                 <option value = "${produto.modelo}">${produto.modelo}</option>
+                                    <option value="Fender">Fender</option>
+                                    <option value="Taylor">Taylor</option>
+                                    <option value="Gibson">Gibson</option>
+                                    <option value="Core">Core</option>
+                                    <option value="Tajima">Tajima</option>
+                                    <option value="Crafter">Crafter</option>
+                                    <option value="Sony">Sony</option>
+                                    <option value="JBL">JBL</option>
+                                    <option value="Drums">Drums</option>
+                                    <option value="Yamaha">Yamaha</option>
+                            </select>
+                       
+        <br>                                     
                       
                              <label for="tipo">Tipo / Categoria: *</label>
                              <input type="text" class="form-control" id="CPF" name="tipo" value = "${produto.tipo}" required>
@@ -251,13 +294,34 @@
                     
                              <label for="qtdEstoque">Quantidade para estoque: *</label>
                              <input type="text" class="form-control" id="estado" name="qtdEstoque" value = "${produto.qtdEstoque}" required>
-                    
-         <br>              
+       
+                         
+        <c:if test="${sessionScope.usuario.isGerente()}">
+                        <br>
                       
                              <label for="filial">Filial hierarquica: *</label>
-                             <input type="text" class="form-control" id="UF" name="filial" value = "${produto.FKFilial}" required>
+                             <select name="filial" id="filial" class="form-control" required>
+                                    <option value = "${produto.FKFilial}">${produto.FKFilial}</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                            </select>
+                       
+                        <br>
+        </c:if>
+                        
+        
+         <c:if test="${!sessionScope.usuario.isGerente()}">                    
+                     
+         <br>
+                <label for="filial">Filial hierarquica: *</label>
+                <input type="text" class="form-control" id="UF" name="filial" value = "${produto.FKFilial}" readOnly required>
                          
-                         <br>
+        <br>
+         </c:if>
                          <button type="submit" class="btn btn-primary">Alterar produto!</button>    
          </ul>
                  </fieldset>

@@ -3,6 +3,7 @@ package Servlet.Produto;
 
 import DAO.ProdutoDAO;
 import Model.Produto;
+import Model.Usuario;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -43,11 +44,19 @@ public class ProdutoServlet extends HttpServlet {
      @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+        Usuario usuario = (Usuario) httpServletRequest.getSession().getAttribute("usuario");
+        
+        if(usuario.isGerente()){
+            List<Produto> listaProdutos = ProdutoDAO.listaProdutos();
+            request.setAttribute("listaProdutos", listaProdutos);
+        }else{
             
-         List<Produto> listaProdutos = ProdutoDAO.listaProdutos();
-         request.setAttribute("listaProdutos", listaProdutos);
-       
-         
+            List<Produto> listaProdutos = ProdutoDAO.listaProdutosFilial(Integer.parseInt(usuario.getFilial()));
+            request.setAttribute("listaProdutos", listaProdutos);  
+        }
+        
          request.getRequestDispatcher("/Protegido/Pesquisa.jsp").forward(request, response);
     }
     

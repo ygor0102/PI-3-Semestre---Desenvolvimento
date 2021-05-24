@@ -15,7 +15,7 @@
         <c:import url="Header.jsp"/>
         <c:if test="${param.erroLogin}">
             <div class="alert alert-danger" role="alert">
-               Erro de Login!
+               Senha ou usuário incorretos!
             </div>
         </c:if>
           <img src="img/menu.png" alt ="Logo da LIS">

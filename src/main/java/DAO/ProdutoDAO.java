@@ -92,6 +92,35 @@ public class ProdutoDAO {
         return produtos;   
     }
       
+      public static List<Produto> listaProdutosFilial(int filialUser) {
+        List<Produto> produtos = new ArrayList<>();
+        String query = "select * from produto where FK_id_filial = ?";
+        Connection con;
+        try {
+            con = GerenciarConexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, filialUser);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                int idProduto = rs.getInt("id_produto");
+                String nome = rs.getString("nome");
+                String modelo = rs.getString("modelo");
+                String tipo = rs.getString("tipo");
+                double preco = rs.getDouble("preco");
+                int qtdEstoque = rs.getInt("qtd_estoque");
+                int FKFilial = rs.getInt("fk_id_filial");
+               
+                Produto produto = new Produto(idProduto, nome, modelo, tipo, preco, qtdEstoque, FKFilial);
+                produtos.add(produto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return produtos;   
+    }
+      
+      
+      
        public static List<Produto> listaCarrinho() {
         List<Produto> produtos = new ArrayList<>();
         String query = "select * from carrinho";
@@ -118,6 +147,35 @@ public class ProdutoDAO {
         return produtos;   
     }
        
+       public static List<Produto> listaCarrinhoFilial(int filialUser) {
+        List<Produto> produtos = new ArrayList<>();
+        String query = "select * from carrinho\n"
+                + "where fk_id_filial = ?";
+        Connection con;
+        try {
+            con = GerenciarConexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, filialUser);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                int idProduto = rs.getInt("id_produto");
+                String nome = rs.getString("nome");
+                String modelo = rs.getString("modelo");
+                String tipo = rs.getString("tipo");
+                double preco = rs.getDouble("preco");
+                int qtdEstoque = rs.getInt("qtd_produto");
+                int FKFilial = rs.getInt("fk_id_filial");
+               
+                Produto produto = new Produto(idProduto, nome, modelo, tipo, preco, qtdEstoque, FKFilial);
+                produtos.add(produto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return produtos;   
+    }
+       
+       
         public static Double GetPrecoTotal() {
         double preco =0;
         String query = "select sum(preco*qtd_produto) as precoTotal from carrinho";
@@ -125,6 +183,27 @@ public class ProdutoDAO {
         try {
             con = GerenciarConexao.getConexao();
             PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+             while(rs.next()) {
+               preco = rs.getDouble(1);  
+             }
+             
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return preco;   
+    }
+        
+        public static Double GetPrecoTotalFilial(int filialUser) {
+        double preco =0;
+        String query = "select sum(preco*qtd_produto) as precoTotal from carrinho\n"+ 
+                "  where fk_id_filial = ?";
+        Connection con;
+        try {
+            con = GerenciarConexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, filialUser);
             ResultSet rs = ps.executeQuery();
              while(rs.next()) {
                preco = rs.getDouble(1);  

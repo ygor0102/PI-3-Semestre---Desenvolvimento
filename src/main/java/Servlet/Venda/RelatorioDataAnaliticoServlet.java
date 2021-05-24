@@ -7,6 +7,7 @@ package Servlet.Venda;
 
 import DAO.VendaDAO;
 import Model.ItemVenda;
+import Model.Usuario;
 import Model.Venda;
 import Servlet.Cliente.ClienteServlet;
 import java.io.IOException;
@@ -47,9 +48,20 @@ public class RelatorioDataAnaliticoServlet extends HttpServlet {
      
         String Inicial = dateFormat.format(data01);
         String Final = dateFormat.format(data02);
+                 
+         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+         Usuario usuario = (Usuario) httpServletRequest.getSession().getAttribute("usuario");
         
-         List<ItemVenda> listaVendas02 = VendaDAO.reporteAnaliticoPorDatas(Inicial, Final);
-         request.setAttribute("listaVendas02", listaVendas02);
+        if(usuario.isGerente()){
+             List<ItemVenda> listaVendas02 = VendaDAO.reporteAnaliticoPorDatas(Inicial, Final);
+             request.setAttribute("listaVendas02", listaVendas02);
+            
+        }else{
+            
+            List<ItemVenda> listaVendas02 = VendaDAO.reporteAnaliticoPorDatasFilial(Inicial, Final, Integer.parseInt(usuario.getFilial()));
+            request.setAttribute("listaVendas02", listaVendas02);
+        }
+        
          request.getRequestDispatcher("/Protegido/Admin_e_Gerente/RelatorioAnalitico.jsp").forward(request, response);
          
     }

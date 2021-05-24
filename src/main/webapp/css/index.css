@@ -39,7 +39,7 @@ h1 {
     font-variant: normal; 
     font-weight: 700; 
     line-height: 26.4px;
-    color: #66CDAA;
+    color: #096E80;
 }
 
 .table{
@@ -48,7 +48,8 @@ h1 {
 }
 
 thead{
-    background-color: #1E90FF;
+    background-color: #3990D5;
+    color: white;
 }
 
 thead th{
