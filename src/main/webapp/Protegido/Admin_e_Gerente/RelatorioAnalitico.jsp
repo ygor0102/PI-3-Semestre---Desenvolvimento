@@ -52,7 +52,7 @@
         <form action="RelatorioDataAnaliticoServlet" method="GET">
             <fieldset>
             <br>
-            <p>Data inicial: <input type="date" id="start" name="start" required> até <input type="date" id="end" name="end" required> <button type="submit" class="btn btn-primary">Pesquisar</button></p>
+            <p>Data inicial: <input type="date" id="start" name="start" required> até: <input type="date" id="end" name="end" required> <button type="submit" class="btn btn-primary">Pesquisar</button></p>
             <br> 
             </fieldset>        
         </form>

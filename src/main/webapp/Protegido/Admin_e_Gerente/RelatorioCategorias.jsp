@@ -49,6 +49,13 @@
         <img src="../../img/report.png" alt ="report">
         <legend>Vendas por categorias de produto</legend>
        <br>
+       <form action="RelatorioDataCategorias" method="GET">
+            <fieldset>
+            <br>
+            <p>Data inicial: <input type="date" id="start" name="start" required> até: <input type="date" id="end" name="end" required> <button type="submit" class="btn btn-primary">Pesquisar</button></p>
+            <br> 
+            </fieldset>        
+        </form><!-- comment -->
     </center>
        <table class="table table-striped table-dark">
             <thead>

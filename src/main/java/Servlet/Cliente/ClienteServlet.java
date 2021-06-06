@@ -58,6 +58,7 @@ public class ClienteServlet extends HttpServlet {
                 response.sendRedirect("Sucesso.jsp");
             } else {
                 System.out.println("Falha!");
+                response.sendRedirect("Erro.jsp");
             }
             
             
@@ -66,6 +67,8 @@ public class ClienteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
             
          List<Cliente> listaClientes = ClienteDAO.listaClientes();
          request.setAttribute("listaClientes", listaClientes);

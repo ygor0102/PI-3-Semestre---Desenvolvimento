@@ -131,7 +131,7 @@
         <br>
         <center><legend>Clientes cadastrados na loja</legend>
         
-        <form action="" method="GET">
+        <form action="PesquisarCliente" method="GET">
                   <fieldset>
                <label>Pesquisar clientes: </label>
                <input type="text" class="form-control" id="nome_cliente" name="nome_cliente" placeholder="Digite o nome do cliente..." required>

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlet.Venda;
+package Servlet.Cliente;
 
 import DAO.ClienteDAO;
 import DAO.ProdutoDAO;
@@ -21,15 +21,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ygor.oliveira
  */
-public class CarrinhoServlet extends HttpServlet {
-   
-    
-    @Override
+public class PesquisarCliente extends HttpServlet {
+
+  @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-         
+      
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         Usuario usuario = (Usuario) httpServletRequest.getSession().getAttribute("usuario");
         
@@ -49,38 +46,12 @@ public class CarrinhoServlet extends HttpServlet {
             double PrecoTotal = ProdutoDAO.GetPrecoTotalFilial(Integer.parseInt(usuario.getFilial()));
             request.setAttribute("PrecoTotal", PrecoTotal);
         }
-              
-         List<Cliente> listaClientes = ClienteDAO.listaClientesComID();
+        
+         String nome = request.getParameter("nome_cliente");
+        
+         List<Cliente> listaClientes = ClienteDAO.listaPorNome(nome);
          request.setAttribute("listaClientes", listaClientes);
-         
          request.getRequestDispatcher("/Protegido/Carrinho.jsp").forward(request, response);
-
+         
     }
-    
-     
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-      
-                
-        int idProduto = Integer.parseInt(request.getParameter("id_produto"));
-        int QtdProduto = Integer.parseInt(request.getParameter("qtd_produto"));
-        
-        Produto produto = ProdutoDAO.getProduto(idProduto);
-
-        produto.setQtdEstoque(QtdProduto);
-       
-        boolean ok = ProdutoDAO.addCarrinho(produto);
-        
-        // Passo 3: Redirecionar para sucesso.jsp
-            if (ok) {
-                System.out.println("Sucesso!");
-                response.sendRedirect("CarrinhoServlet");
-            } else {
-                System.out.println("Falha!");
-                response.sendRedirect("Erro.jsp");
-            }
-   
-    }
-
 }

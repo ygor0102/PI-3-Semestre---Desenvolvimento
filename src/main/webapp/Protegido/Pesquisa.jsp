@@ -103,7 +103,18 @@
         <center><img src="../img/user.png" alt ="cliente">
         <legend>Clientes cadastrados na loja</legend>
         <br></center>
-    
+        
+    <center><form action="PesquisarClienteGerencial" method="GET">
+                  <fieldset>
+               <label>Pesquisar clientes: </label>
+               <input type="text" class="form-control" id="nome_cliente" name="nome_cliente" placeholder="Digite o nome do cliente..." required>
+               <br>
+               <button type="submit" class="btn btn-primary" disable>Pesquisar</button>
+              
+                </fieldset>
+        </form></center>
+        
+            <br>
        <table class="table table-striped table-dark">
             <thead>
                 <th>Nome</th>
@@ -167,7 +178,18 @@
         <br>
         <center><img src="../img/product.png" alt ="product">
         <legend>Produtos cadastrados na loja</legend>
-        <br></center>
+        <br>
+        <center><form action="PesquisarProduto" method="GET">
+                <fieldset>
+               <label>Pesquisar produtos: </label>
+               <input type="text" class="form-control" id="nome_produto" name="nome_produto" placeholder="Digite o nome do produto..." required>
+               <br>
+               <button type="submit" class="btn btn-primary" disable>Pesquisar</button>
+              
+                </fieldset>
+        </form>
+        </center>
+        <br>
         <table class="table table-striped table-dark">
             <thead>
                 <th>ID do produto</th>

@@ -92,6 +92,33 @@ public class ProdutoDAO {
         return produtos;   
     }
       
+      public static List<Produto> listaProdutosNome(String nomeProduto) {
+        List<Produto> produtos = new ArrayList<>();
+        String query = "select * from produto where nome like ?";
+        Connection con;
+        try {
+            con = GerenciarConexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, "%" + nomeProduto + "%");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                int idProduto = rs.getInt("id_produto");
+                String nome = rs.getString("nome");
+                String modelo = rs.getString("modelo");
+                String tipo = rs.getString("tipo");
+                double preco = rs.getDouble("preco");
+                int qtdEstoque = rs.getInt("qtd_estoque");
+                int FKFilial = rs.getInt("fk_id_filial");
+               
+                Produto produto = new Produto(idProduto, nome, modelo, tipo, preco, qtdEstoque, FKFilial);
+                produtos.add(produto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return produtos;   
+    }
+      
       public static List<Produto> listaProdutosFilial(int filialUser) {
         List<Produto> produtos = new ArrayList<>();
         String query = "select * from produto where FK_id_filial = ?";
@@ -100,6 +127,34 @@ public class ProdutoDAO {
             con = GerenciarConexao.getConexao();
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, filialUser);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                int idProduto = rs.getInt("id_produto");
+                String nome = rs.getString("nome");
+                String modelo = rs.getString("modelo");
+                String tipo = rs.getString("tipo");
+                double preco = rs.getDouble("preco");
+                int qtdEstoque = rs.getInt("qtd_estoque");
+                int FKFilial = rs.getInt("fk_id_filial");
+               
+                Produto produto = new Produto(idProduto, nome, modelo, tipo, preco, qtdEstoque, FKFilial);
+                produtos.add(produto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return produtos;   
+    }
+      
+      public static List<Produto> listaProdutosFilialNome(int filialUser, String nomeProduto) {
+        List<Produto> produtos = new ArrayList<>();
+        String query = "select * from produto where FK_id_filial = ? and nome like ?";
+        Connection con;
+        try {
+            con = GerenciarConexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, filialUser);
+            ps.setString(2, "%" + nomeProduto + "%");
             ResultSet rs = ps.executeQuery();
             while(rs.next()) {
                 int idProduto = rs.getInt("id_produto");

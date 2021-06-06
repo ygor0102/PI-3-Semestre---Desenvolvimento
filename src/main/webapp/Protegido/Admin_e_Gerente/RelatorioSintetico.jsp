@@ -49,14 +49,14 @@
         <br><br><br>
         <img src="../../img/report.png" alt ="report">
         <legend>Reporte Sintético de vendas<legend>
-           
-        <form action="RelatorioDataServlet" method="GET">
+           <form action="RelatorioDataServlet" method="GET">
             <fieldset>
             <br>
-            <p>Data inicial: <input type="date" id="start" name="start" required> até <input type="date" id="end" name="end" required> <button type="submit" class="btn btn-primary">Pesquisar</button></p>
+            <p>Data inicial: <input type="date" id="start" name="start" required> até: <input type="date" id="end" name="end" required> <button type="submit" class="btn btn-primary">Pesquisar</button></p>
             <br> 
             </fieldset>        
         </form>
+        
         </center>
     
            <br>

@@ -76,6 +76,26 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>Servlet.Login.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PesquisarCliente</servlet-name>
+        <servlet-class>Servlet.Cliente.PesquisarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PesquisarClienteGerencial</servlet-name>
+        <servlet-class>Servlet.Cliente.PesquisarClienteGerencial</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PesquisarProduto</servlet-name>
+        <servlet-class>Servlet.Produto.PesquisarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RelatorioDataFiliais</servlet-name>
+        <servlet-class>Servlet.Venda.RelatorioDataFiliais</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RelatorioDataCategorias</servlet-name>
+        <servlet-class>Servlet.Venda.RelatorioDataCategorias</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/Protegido/ClienteServlet</url-pattern>
@@ -144,14 +164,32 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisarCliente</servlet-name>
+        <url-pattern>/Protegido/PesquisarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisarClienteGerencial</servlet-name>
+        <url-pattern>/Protegido/PesquisarClienteGerencial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisarProduto</servlet-name>
+        <url-pattern>/Protegido/PesquisarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioDataFiliais</servlet-name>
+        <url-pattern>/Protegido/Admin_e_Gerente/RelatorioDataFiliais</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioDataCategorias</servlet-name>
+        <url-pattern>/Protegido/Admin_e_Gerente/RelatorioDataCategorias</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
     <welcome-file-list>
         <welcome-file>Protegido/index.jsp</welcome-file>
     </welcome-file-list>
-    
 </web-app>

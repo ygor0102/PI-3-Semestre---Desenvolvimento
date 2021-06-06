@@ -37,6 +37,7 @@ public class ProdutoServlet extends HttpServlet {
                 response.sendRedirect("Sucesso.jsp");
             } else {
                 System.out.println("Falha!");
+                response.sendRedirect("Erro.jsp");
             }
    
     }
