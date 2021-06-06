@@ -1,21 +1,52 @@
-<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
     Document   : Carrinho
-    Created on : 08/05/2021, 12:56:17
-    Author     : ygor.oliveira
+    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias
 --%>
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="../css/index.css">
+        <link rel="stylesheet" href="../css/navbar.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>Carrinho de compras</title>
     </head>
     <body>
-        <c:import url="../Header.jsp"/>
-        <c:import url="Menu.jsp"/>
+        <header>  
+        <div id="navbar">
+            
+            <a class="nav-link" href="index.jsp">Menu</a>
+            <a class="nav-link" href="VendaServlet">Realizar vendas</a>
+            <a class="nav-link" href="ClienteServlet">Gerenciar clientes e produtos</a>
+             <c:if test="${sessionScope.usuario.isGerente() || sessionScope.usuario.isAdmin()}">
+                 <a class="nav-link" href="Admin_e_Gerente/RelatorioServlet">Extrair relatórios</a>
+          </c:if>
+        </div>
+        <script>     
+          // When the user scrolls the page, execute myFunction
+            window.onscroll = function() {myFunction()};
+
+            // Get the navbar
+                var navbar = document.getElementById("navbar");
+
+           // Get the offset position of the navbar
+            var sticky = navbar.offsetTop;
+
+            // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+            function myFunction() {
+            if (window.pageYOffset >= sticky) {
+             navbar.classList.add("sticky")
+        }
+        else {
+             navbar.classList.remove("sticky");
+  }
+}
+        </script>
+          
+        </header>
         
         <script>
       
@@ -54,9 +85,10 @@
             }
             
         </script>
-        
-         <legend>Carrinho de compras</legend>
-         <center><table>
+        <br><br><br>
+    <center><legend>Carrinho de compras</legend></center>
+         <table class="table table-striped table-dark">
+              
                  <thead>
                   <th>Código do produto</th>
                   <th>Nome</th>
@@ -84,7 +116,7 @@
           </tbody>
         </table>
              <br>
-             <form action="ExcluirCarrinho" method="GET">
+             <center><form action="ExcluirCarrinho" method="GET">
                   <fieldset>
                <label>Digite o código do produto para remover: *</label><input type="number" min="1" class="form-control" id="id_produto" name="id_produto" placeholder="Digite o código..." required>
                <br>
@@ -92,12 +124,26 @@
                <button type="submit" class="btn btn-primary" disable>Remover item</button>
               
                   </fieldset>
-              </form>
+                 </form></center>
         <br>
         
        
         <br>
-        <table>
+        <center><legend>Clientes cadastrados na loja</legend>
+        
+        <form action="" method="GET">
+                  <fieldset>
+               <label>Pesquisar clientes: </label>
+               <input type="text" class="form-control" id="nome_cliente" name="nome_cliente" placeholder="Digite o nome do cliente..." required>
+               <br>
+               <button type="submit" class="btn btn-primary" disable>Pesquisar</button>
+              
+                  </fieldset>
+                 </form>
+        
+            <br>
+        </center>
+        <table class="table table-striped table-dark">
             <thead>
                 <th>ID do cliente</th>
                 <th>Nome</th>
@@ -115,7 +161,7 @@
                 
             </thead>
             <tbody>
-                 <legend>Clientes cadastrados na loja</legend>
+                 
                 <c:forEach var="cliente" items="${listaClientes}">
                     <tr>
                         <td>${cliente.idCliente}</td>
@@ -134,21 +180,21 @@
                     </tr>
                 </c:forEach>
             </tbody>
-        </table>
-        <br>
+            </table>
+        <center><br>
          <br>
                <label>  Preço total da compra:</label>
                <input type="number" class="form-control" id="precoTotal" name ="precoTotal" value="${PrecoTotal}" readonly ="true">
          <br>
          
-        <form action="VendaServlet" method="POST">
+         <form action="VendaServlet" method="POST">
         <fieldset>
         <label>Digite o ID do cliente responsável pela compra: *</label><input type="number" min="1" class="form-control" id="id_cliente" name="id_cliente" placeholder="" required>
         <br>
         <button type="submit" class="btn btn-primary" id="btnFinaliza" name ="btnFinaliza">Clique aqui para finalizar!</button>
         
         </fieldset>
-        </form>
+             </form></center>
          
        <c:import url="../Footer.jsp"/>
     

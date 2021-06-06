@@ -1,7 +1,6 @@
 <%-- 
     Document   : Sucesso
-    Created on : 15/04/2021, 23:07:10
-    Author     : ygor.oliveira
+    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,7 +1,6 @@
 <%-- 
     Document   : Login
-    Created on : 13/05/2021, 20:05:18
-    Author     : ygor.oliveira
+    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,8 +17,9 @@
                Senha ou usuário incorretos!
             </div>
         </c:if>
-          <img src="img/menu.png" alt ="Logo da LIS">
-        <form action="LoginServlet" method="POST">
+          
+    <center><form action="LoginServlet" method="POST">
+            <img src="img/menu.png" alt ="Logo da LIS">
               <fieldset>
          <br>
                 <legend>Login: </legend>
@@ -33,7 +33,7 @@
         <button type="submit" class="btn btn-primary">Entrar</button>
         
         </fieldset>
-        </form>
+        </form></center>
         <c:import url="Footer.jsp"/>
           
     </body>

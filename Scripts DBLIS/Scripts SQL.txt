@@ -96,6 +96,22 @@ insert into filial (nome, cidade, uf) values
 ('Filial 05','Uberlândia','MG'),
 ('Filial 06','Curitiba','PR');
 
+Inserção de usuários:
+
+insert into usuario (nome, login, senha, perfil, fk_id_filial) values
+('Ygor Oliveira','ygor','$2a$12$OrmHuz.DvHSwJcWvGSj9fuANBeokmYj3.M5SOBkzgV0nW7xVZOFgW','ADMIN',2),
+('John Marston','john','$2a$12$vn/H6k7PHcRHQW8cZHO6x.GXr/zzsj20.2dw7iTvyG3RtuzvvrcJC','VENDEDOR',3),
+('Arthur Morgan','arthur','$2a$12$PMqFEMKUf6a3nvJUIJOaCupPd/9Gmr9YBvheI8Leet0GlEtRCY8vC','GERENTE',1);
+
+As senhas criptografadas acima logarão no sistema como:
+ygor12345
+john12345
+arthur12345
+
+
+
+
+
 
 
 

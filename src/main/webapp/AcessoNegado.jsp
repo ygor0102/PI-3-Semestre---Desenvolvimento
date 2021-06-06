@@ -1,9 +1,7 @@
 <%-- 
-    Document   : AcessoNegado
-    Created on : 22/05/2021, 17:38:36
-    Author     : ygor.oliveira
+    Document   : Acesso negado
+    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias
 --%>
-
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

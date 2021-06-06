@@ -1,4 +1,7 @@
-
+<%-- 
+    Document   : Header
+    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +14,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <h1>Ambiente de vendas - LIS</h1>
+    <center><h1>Ambiente de vendas - LIS</h1></center>
     </body>
 </html>

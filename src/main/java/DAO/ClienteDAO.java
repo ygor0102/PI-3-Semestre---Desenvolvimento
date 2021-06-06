@@ -11,6 +11,7 @@ import Model.Cliente;
 import Utils.GerenciarConexao;
 import static Utils.Utils.popularCliente;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -127,6 +128,7 @@ public class ClienteDAO {
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         return cliente;
    }
      

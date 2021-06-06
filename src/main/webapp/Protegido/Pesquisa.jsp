@@ -1,7 +1,6 @@
 <%-- 
     Document   : Pesquisa
-    Created on : 15/04/2021, 21:10:43
-    Author     : ygor.oliveira
+    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,13 +8,44 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="../css/index.css">
-        
+        <link rel="stylesheet" href="../css/navbar.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>Gerenciar clientes e produtos</title>
     </head>
     <body>
-        <c:import url="../Header.jsp"/>
-        <c:import url="Menu.jsp"/>
+        <header>  
+        <div id="navbar">
+            
+            <a class="nav-link" href="index.jsp">Menu</a>
+            <a class="nav-link" href="VendaServlet">Realizar vendas</a>
+            <a class="nav-link" href="ClienteServlet">Gerenciar clientes e produtos</a>
+             <c:if test="${sessionScope.usuario.isGerente() || sessionScope.usuario.isAdmin()}">
+                 <a class="nav-link" href="Admin_e_Gerente/RelatorioServlet">Extrair relatórios</a>
+          </c:if>
+        </div>
+        <script>     
+          // When the user scrolls the page, execute myFunction
+            window.onscroll = function() {myFunction()};
+
+            // Get the navbar
+                var navbar = document.getElementById("navbar");
+
+           // Get the offset position of the navbar
+            var sticky = navbar.offsetTop;
+
+            // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+            function myFunction() {
+            if (window.pageYOffset >= sticky) {
+             navbar.classList.add("sticky")
+        }
+        else {
+             navbar.classList.remove("sticky");
+  }
+}
+        </script>
+          
+        </header>
         
         <script>
        
@@ -68,12 +98,13 @@
             }
             
         </script>
-        
+        <br><br><br>
         <br>
-        <img src="../img/user.png" alt ="cliente">
+        <center><img src="../img/user.png" alt ="cliente">
         <legend>Clientes cadastrados na loja</legend>
-        <br>
-       <center> <table>
+        <br></center>
+    
+       <table class="table table-striped table-dark">
             <thead>
                 <th>Nome</th>
                 <th>Nascimento</th>
@@ -107,12 +138,12 @@
                         <td>${cliente.telefone}</td>
                         <td>${cliente.celular}</td>
                         <td>${cliente.email}</td>
-                        <td><a href="AlterarCliente?cpf=${cliente.CPF}">Alterar</a></td>
-                        <td><button type="button" class="btn btn-link" onclick="confirmarExclusao(${cliente.CPF})">Excluir</button></td>
+                        <td><a class="text-light" href="AlterarCliente?cpf=${cliente.CPF}">Alterar</a></td>
+                        <td><button type="button" style="color:white" class="btn btn-link" onclick="confirmarExclusao(${cliente.CPF})">Excluir</button></td>
                     </tr>
                 </c:forEach>
             </tbody>
-        </table>
+           </table>
         <div class="modal" tabindex="-1" id="modal1">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -134,10 +165,10 @@
         <br>
         <br>
         <br>
-        <img src="../img/product.png" alt ="product">
+        <center><img src="../img/product.png" alt ="product">
         <legend>Produtos cadastrados na loja</legend>
-        <br>
-        <table>
+        <br></center>
+        <table class="table table-striped table-dark">
             <thead>
                 <th>ID do produto</th>
                 <th>Nome</th>
@@ -160,12 +191,12 @@
                         <td>${produto.preco}</td>
                         <td>${produto.qtdEstoque}</td>
                         <td>${produto.FKFilial}</td>
-                        <td><a href="AlterarProduto?idproduto=${produto.idProduto}">Alterar</a></td>
-                        <td><button type="button" class="btn btn-link" onclick="confirmarExclusaoProduto(${produto.idProduto})">Excluir</button></td>
+                        <td><a class="text-light" href="AlterarProduto?idproduto=${produto.idProduto}">Alterar</a></td>
+                        <td><button type="button" style="color:white" class="btn btn-link" onclick="confirmarExclusaoProduto(${produto.idProduto})">Excluir</button></td>
                     </tr>
                 </c:forEach>
             </tbody>
-        </table>
+            </table>
         
         <div class="modal" tabindex="-1" id="modal2">
             <div class="modal-dialog">

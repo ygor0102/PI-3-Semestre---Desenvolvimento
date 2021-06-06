@@ -8,10 +8,7 @@ package Utils;
 import Model.Cliente;
 import Model.Produto;
 import java.sql.ResultSet;
-import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
 /**
@@ -34,6 +31,7 @@ public class Utils {
              String telefone = rs.getString("telefone");
              String celular = rs.getString("celular");
              String email = rs.getString("email");
+          
         
         Cliente cliente = new Cliente(nome, nascimento, CPF, sexo, estado, UF, logradouro,
                                                numero, complemento, telefone, celular, email);

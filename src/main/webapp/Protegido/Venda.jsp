@@ -1,7 +1,6 @@
 <%-- 
     Document   : Venda
-    Created on : 06/05/2021, 21:40:39
-    Author     : ygor.oliveira
+    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,30 +8,47 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="../css/index.css">
+        <link rel="stylesheet" href="../css/navbar.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>Realizar venda</title>
  
     </head>
     
     <body>
-              <c:import url="../Header.jsp"/>
-               <header class ="container">
-               <nav class ="menu-opcoes">
-                <ul>
-                    <li> <a href="index.jsp">Menu</a></li>
-                    <li> <a href="ClienteServlet">Gerenciar clientes e produtos</a></li>
-                    <li><a href="Cadastro.jsp">Realizar cadastros</a></li>
-                     <c:if test="${sessionScope.usuario.isGerente() || sessionScope.usuario.isAdmin()}">
-                    <li> <a href="Admin_e_Gerente/RelatorioServlet">Extrair relatórios</a></li>
-                    </c:if>
-                    <li> <a href="CarrinhoServlet">Carrinho de compras</a></li>
+        <header>  
+        <div id="navbar">
+            
+            <a class="nav-link" href="index.jsp">Menu</a>
+            <a class="nav-link" href="ClienteServlet">Gerenciar clientes e produtos</a>
+            <a class="nav-link" href="Cadastro.jsp">Realizar cadastros</a>
+            <c:if test="${sessionScope.usuario.isGerente() || sessionScope.usuario.isAdmin()}">
+            <a class="nav-link" href="Admin_e_Gerente/RelatorioServlet">Extrair relatórios</a>
+            </c:if>
+            <a class="nav-link" href="CarrinhoServlet">Carrinho de compras</a>
+        </div>
+        <script>     
+          // When the user scrolls the page, execute myFunction
+            window.onscroll = function() {myFunction()};
 
-                </ul>
-            </nav>
-        </header>
-              <br>
+            // Get the navbar
+                var navbar = document.getElementById("navbar");
+
+           // Get the offset position of the navbar
+            var sticky = navbar.offsetTop;
+
+            // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+            function myFunction() {
+            if (window.pageYOffset >= sticky) {
+             navbar.classList.add("sticky")
+        }
+        else {
+             navbar.classList.remove("sticky");
+  }
+}
+        </script>
       
-               
+        <br>    
         <script>
        
             function ValidaQtd(qtdEstoque, idProduto){
@@ -61,7 +77,7 @@
             
         </script>
     
-         <center><table>
+         <table class="table table-striped table-dark">
                  <thead>
                   <th>Código do produto</th>
                   <th>Nome</th>
@@ -73,7 +89,7 @@
                   <th>Valida quantia</th>
               </thead>
              <tbody> 
-                <legend>Lista de produtos:</legend>
+             <center><legend>Produtos disponíveis:</legend></center>
                 <c:forEach var="produto" items="${listaProdutos}">
                     <tr>
                         <td>${produto.idProduto}</td>
@@ -83,14 +99,14 @@
                         <td>${produto.preco}</td>
                         <td>${produto.qtdEstoque}</td>
                         <td>${produto.FKFilial}</td>
-                        <td><button type="button" class="btn btn-link" onclick="ValidaQtd(${produto.qtdEstoque}, ${produto.idProduto})">Validar qtd.</button></td>
+                        <td><button type="button" style="color:white" class="btn btn-link" onclick="ValidaQtd(${produto.qtdEstoque}, ${produto.idProduto})">Validar qtd.</button></td>
                     </tr>
                 </c:forEach>
             </tbody>
-            </table></center>
+            </table>
     
                 <br>
-              <form action="CarrinhoServlet" method="POST">
+                <center><form action="CarrinhoServlet" method="POST">
                   <fieldset>
                     <p>Quantidade desejada: </p><input type="number" min="1" class="form-control" id="qtd_produto" name="qtd_produto" placeholder="Digite a quantidade..." required>
                     <br>
@@ -98,7 +114,7 @@
                     <br>
                     <button type="submit" class="btn btn-primary" id="btAdd" name="btAdd" disabled="true">Adicionar ao carrinho</button>
                   </fieldset>
-              </form>
+                    </form></center>
                 <c:import url="../Footer.jsp"/>
     </body>
 </html>

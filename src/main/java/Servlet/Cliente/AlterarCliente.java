@@ -31,7 +31,7 @@ public class AlterarCliente extends HttpServlet {
         
         String cpf = request.getParameter("cpf");
         Cliente cliente = ClienteDAO.getCliente(cpf);
-        
+              
         request.setAttribute("cliente", cliente);
         
          request.getRequestDispatcher("/Protegido/Cadastro.jsp").forward(request, response);

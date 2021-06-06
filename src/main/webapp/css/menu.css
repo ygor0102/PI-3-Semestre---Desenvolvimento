@@ -1,5 +1,5 @@
 /* 
-    Document : Index
+    Document : Menu
     Author   : Ygor Oliveira | Yasmim Candelária | Juan Dias
 */
 body{
@@ -12,14 +12,14 @@ body{
 
 
     /* visual do link */
-    background-color:#1C1C1C;
+    background-color:#EDEDED;
     color: #333;
     text-decoration: none;
     border-bottom:3px solid #EDEDED;
 }
 
 .menu-opcoes ul li :hover {
-    background-color:#DCDCDC;
+    background-color:#D6D6D6;
     color: #6D6D6D;
     border-bottom:3px solid #AFEEEE;
 }
@@ -34,33 +34,7 @@ h1 {
     color: #096E80;
 }
 
-.table{
-  margin-left: 50%;
-  margin-right: 50%;
-}
 
-thead{
-    background-color: #3990D5;
-    color: white;
-}
-
-thead th{
-    font-weight: bold;
-    padding: 0.3em 1em;
-    text-align: center;
-}
-
-td{
-    padding: 0.3em;
-}
-
-tr:nth-child(2n){
-    background-color: #ccc;
-}
-
-td:first-child{
-    font-style: italic; 
-}
 
 /* Style the navbar */
 #navbar {
@@ -77,11 +51,11 @@ td:first-child{
   padding: 14px;
   text-decoration: none;
 }
-
 /* Page content */
 .content {
   padding: 16px;
 }
+
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
