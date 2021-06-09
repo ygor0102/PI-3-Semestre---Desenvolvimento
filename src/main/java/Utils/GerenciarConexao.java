@@ -1,4 +1,7 @@
-
+/**
+ *
+ * @author Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
+ */
 package Utils;
 
 import java.sql.Connection;
@@ -7,10 +10,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author ygor.oliveira
- */
 public class GerenciarConexao {
    
     static {

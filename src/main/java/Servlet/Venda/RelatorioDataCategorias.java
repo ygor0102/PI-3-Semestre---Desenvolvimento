@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
  */
 package Servlet.Venda;
 
@@ -9,7 +8,6 @@ import DAO.VendaDAO;
 import Model.ItemVenda;
 import Model.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,10 +19,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author ygor.oliveira
- */
 public class RelatorioDataCategorias extends HttpServlet {
 @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

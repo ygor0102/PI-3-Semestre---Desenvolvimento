@@ -1,8 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
  */
+
 package DAO;
 
 import Utils.GerenciarConexao;
@@ -17,10 +17,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author ygor.oliveira
- */
 public class ProdutoDAO {
     
      public static boolean cadastrarProduto(Produto produto) {

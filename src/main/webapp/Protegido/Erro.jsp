@@ -1,7 +1,6 @@
 <%-- 
     Document   : Erro
-    Created on : 06/06/2021, 17:07:32
-    Author     : ygor.oliveira
+    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

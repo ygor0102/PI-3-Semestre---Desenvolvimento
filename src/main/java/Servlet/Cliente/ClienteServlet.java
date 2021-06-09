@@ -1,4 +1,7 @@
-
+/**
+ *
+ * @author Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
+ */
 package Servlet.Cliente;
 
 import DAO.ClienteDAO;
@@ -15,10 +18,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author ygor.oliveira
- */
 public class ClienteServlet extends HttpServlet {
 
      

@@ -1,7 +1,8 @@
-
+/**
+ *
+ * @author Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
+ */
 package DAO;
-
-import Utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -11,14 +12,10 @@ import Model.Cliente;
 import Utils.GerenciarConexao;
 import static Utils.Utils.popularCliente;
 import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-/**
- *
- * @author ygor.oliveira
- */
+
 public class ClienteDAO {
     
      public static boolean cadastrarCliente(Cliente cliente) {

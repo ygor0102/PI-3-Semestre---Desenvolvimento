@@ -1,6 +1,6 @@
 <%-- 
     Document   : Acesso negado
-    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias
+    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

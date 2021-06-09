@@ -1,6 +1,6 @@
 <%-- 
     Document   : Carrinho
-    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias
+    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
 --%>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

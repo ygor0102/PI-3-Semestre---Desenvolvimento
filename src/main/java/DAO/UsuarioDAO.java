@@ -1,4 +1,7 @@
-
+/**
+ *
+ * @author Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
+ */
 
 package DAO;
 

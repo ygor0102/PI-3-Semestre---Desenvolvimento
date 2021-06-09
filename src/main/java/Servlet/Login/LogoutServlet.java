@@ -1,10 +1,9 @@
-
-package Servlet.Login;
-
 /**
  *
- * @author ygor.oliveira
+ * @author Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
  */
+
+package Servlet.Login;
 
 import java.io.IOException;
 import java.io.PrintWriter;

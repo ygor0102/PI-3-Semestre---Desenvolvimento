@@ -1,11 +1,9 @@
-package Model;
-
-import java.util.Date;
-     
 /**
- * @author Grupo 2 - Projeto Integrador
- * @since 01/11/2020
- */ 
+ *
+ * @author Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
+ */
+package Model;
+import java.util.Date;
 
 public class Venda {
     

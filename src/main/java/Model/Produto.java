@@ -1,9 +1,9 @@
+/**
+ *
+ * @author Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
+ */
 package Model;
 
-/**
- * @author Grupo 3 - Projeto Integrador
- * @since 15/04/2021
- */ 
 public class Produto {
 
     private int idProduto;

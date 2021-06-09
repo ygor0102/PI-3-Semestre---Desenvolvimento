@@ -1,4 +1,4 @@
-Projeto Integrador - Grupo 02.
+Projeto Integrador
 
 Conexão JavaDB - ProjetoLIS:
 

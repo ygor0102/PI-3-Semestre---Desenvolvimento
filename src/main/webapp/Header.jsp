@@ -1,6 +1,6 @@
 <%-- 
     Document   : Header
-    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias
+    Author     : Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

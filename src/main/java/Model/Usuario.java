@@ -1,10 +1,9 @@
-
-package Model;
-
 /**
  *
- * @author ygor.oliveira
+ * @author Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
  */
+package Model;
+
 public class Usuario {
     private int idUsuario;
     private String nome;

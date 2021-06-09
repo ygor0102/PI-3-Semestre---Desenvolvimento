@@ -1,11 +1,10 @@
-
-package Model;
-
-import java.util.Date;
 /**
- * @author Grupo 3 - Projeto Integrador
- * @since 15/04/2021
+ *
+ * @author Ygor Oliveira | Yasmim Candelária | Juan Dias | Filipe Vital
  */
+package Model;
+import java.util.Date;
+
 public class Cliente {
     
     private int idCliente;
